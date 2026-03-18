@@ -2137,12 +2137,20 @@ function renderPerfil(){
   sideCard.innerHTML=statsHtml+ligasHtml;
   rightCol.appendChild(sideCard);
 
-  // Botão editar
+  // Botões ação
+  var btnRow2=document.createElement('div');
+  btnRow2.style.cssText='display:flex;flex-direction:column;gap:.4rem';
+  var shareBtn=document.createElement('button');
+  shareBtn.style.cssText='padding:.5rem;border-radius:8px;border:1px solid rgba(232,255,71,.3);background:rgba(232,255,71,.07);color:var(--acc);font-size:.72rem;font-weight:700;cursor:pointer;width:100%';
+  shareBtn.textContent='📤 Compartilhar';
+  shareBtn.onclick=function(){shareTeam();};
   var editBtn=document.createElement('button');
-  editBtn.style.cssText='background:transparent;border:1px solid var(--bord);color:var(--dim);font-size:.72rem;cursor:pointer;padding:.5rem .75rem;border-radius:8px;white-space:nowrap';
-  editBtn.textContent='← Editar';
+  editBtn.style.cssText='padding:.45rem;border-radius:8px;border:1px solid var(--bord);background:transparent;color:var(--dim);font-size:.72rem;cursor:pointer;width:100%;white-space:nowrap';
+  editBtn.textContent='← Editar time';
   editBtn.onclick=function(){go('campeonatos',document.querySelectorAll('.nt')[4]);};
-  rightCol.appendChild(editBtn);
+  btnRow2.appendChild(shareBtn);
+  btnRow2.appendChild(editBtn);
+  rightCol.appendChild(btnRow2);
 }
 
 // ── BLAST LIGA / CAMPEONATOS ──
