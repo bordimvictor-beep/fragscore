@@ -333,40 +333,40 @@ function go(id,el){if(window._goImpl){window._goImpl(id,el);}else{window._goPend
     <div style="position:relative;display:grid;grid-template-columns:1fr 280px;gap:2rem;align-items:start">
       <div>
         <div style="font-size:.6rem;font-family:var(--fm);color:var(--red);letter-spacing:3px;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem">
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.2s infinite;display:inline-block"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--grn);animation:pulse 1.2s infinite;display:inline-block"></span>
           PRÓXIMO CAMPEONATO · GROUP STAGE AO VIVO
         </div>
         <div style="font-size:2.6rem;font-weight:900;color:#fff;line-height:1;margin-bottom:.4rem;letter-spacing:-1.5px">
-          PGL <span style="color:var(--red);text-shadow:0 0 30px rgba(255,77,106,.4)">Bucharest</span>
+          PGL <span style="color:var(--grn);text-shadow:0 0 30px rgba(45,255,143,.4)">Bucharest</span>
           <span style="display:block;font-size:1rem;color:var(--dim);font-weight:500;letter-spacing:0;margin-top:.2rem">2026 · 4–11 Abr · Bucareste</span>
         </div>
         <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem">
           <span style="font-size:.68rem;padding:3px 8px;border-radius:5px;background:rgba(255,255,255,.05);color:var(--dim);border:1px solid var(--bord)">16 times</span>
-          <span style="font-size:.68rem;padding:3px 8px;border-radius:5px;background:rgba(232,255,71,.07);color:var(--acc);border:1px solid rgba(232,255,71,.2)">$1.250.000</span>
+          <span style="font-size:.68rem;padding:3px 8px;border-radius:5px;background:rgba(45,255,143,.07);color:var(--grn);border:1px solid rgba(45,255,143,.2)">$1.250.000</span>
           <span style="font-size:.68rem;padding:3px 8px;border-radius:5px;background:rgba(255,255,255,.05);color:var(--dim);border:1px solid var(--bord)">Bucareste, Romênia</span>
         </div>
         <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-          <button onclick="go('campeonatos',document.querySelectorAll('.nt')[4])" style="background:var(--red);color:#fff;border:none;padding:.65rem 1.6rem;font-family:var(--fm);font-weight:700;font-size:.88rem;letter-spacing:2px;cursor:pointer;text-transform:uppercase;border-radius:10px;box-shadow:0 0 18px rgba(255,77,106,.3);transition:all .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">🏆 Escalar time</button>
+          <button onclick="go('campeonatos',document.querySelectorAll('.nt')[4])" style="background:var(--grn);color:#000;border:none;padding:.65rem 1.6rem;font-family:var(--fm);font-weight:700;font-size:.88rem;letter-spacing:2px;cursor:pointer;text-transform:uppercase;border-radius:10px;box-shadow:0 0 18px rgba(45,255,143,.3);transition:all .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">🏆 Escalar time</button>
           <button onclick="go('partidas',document.querySelectorAll('.nt')[3])" style="background:transparent;color:var(--dim);border:1px solid var(--bord);padding:.65rem 1.2rem;font-family:var(--fm);font-size:.82rem;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.borderColor='var(--bord2)';this.style.color='var(--txt)'" onmouseout="this.style.borderColor='var(--bord)';this.style.color='var(--dim)'">Ver partidas →</button>
         </div>
       </div>
       <div style="text-align:center;min-width:240px">
         <div style="font-size:.6rem;font-family:var(--fm);color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:.75rem">Group Stage · PGL Studio Bucharest</div>
         <div style="display:flex;gap:.5rem;justify-content:center" id="hero-countdown">
-          <div style="background:rgba(255,77,106,.08);border:1px solid rgba(255,77,106,.2);border-radius:10px;padding:.6rem .85rem;min-width:58px">
-            <div id="cd-days" style="font-size:2rem;font-weight:700;font-family:var(--fm);color:var(--red);line-height:1">--</div>
+          <div style="background:rgba(45,255,143,.08);border:1px solid rgba(45,255,143,.2);border-radius:10px;padding:.6rem .85rem;min-width:58px">
+            <div id="cd-days" style="font-size:2rem;font-weight:700;font-family:var(--fm);color:var(--grn);line-height:1">--</div>
             <div style="font-size:.55rem;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-top:.2rem">dias</div>
           </div>
-          <div style="background:rgba(255,77,106,.08);border:1px solid rgba(255,77,106,.2);border-radius:10px;padding:.6rem .85rem;min-width:58px">
-            <div id="cd-hours" style="font-size:2rem;font-weight:700;font-family:var(--fm);color:var(--red);line-height:1">--</div>
+          <div style="background:rgba(45,255,143,.08);border:1px solid rgba(45,255,143,.2);border-radius:10px;padding:.6rem .85rem;min-width:58px">
+            <div id="cd-hours" style="font-size:2rem;font-weight:700;font-family:var(--fm);color:var(--grn);line-height:1">--</div>
             <div style="font-size:.55rem;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-top:.2rem">horas</div>
           </div>
-          <div style="background:rgba(255,77,106,.08);border:1px solid rgba(255,77,106,.2);border-radius:10px;padding:.6rem .85rem;min-width:58px">
-            <div id="cd-mins" style="font-size:2rem;font-weight:700;font-family:var(--fm);color:var(--red);line-height:1">--</div>
+          <div style="background:rgba(45,255,143,.08);border:1px solid rgba(45,255,143,.2);border-radius:10px;padding:.6rem .85rem;min-width:58px">
+            <div id="cd-mins" style="font-size:2rem;font-weight:700;font-family:var(--fm);color:var(--grn);line-height:1">--</div>
             <div style="font-size:.55rem;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-top:.2rem">min</div>
           </div>
-          <div style="background:rgba(255,77,106,.08);border:1px solid rgba(255,77,106,.2);border-radius:10px;padding:.6rem .85rem;min-width:58px">
-            <div id="cd-secs" style="font-size:2rem;font-weight:700;font-family:var(--fm);color:var(--red);line-height:1">--</div>
+          <div style="background:rgba(45,255,143,.08);border:1px solid rgba(45,255,143,.2);border-radius:10px;padding:.6rem .85rem;min-width:58px">
+            <div id="cd-secs" style="font-size:2rem;font-weight:700;font-family:var(--fm);color:var(--grn);line-height:1">--</div>
             <div style="font-size:.55rem;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-top:.2rem">seg</div>
           </div>
         </div>
@@ -913,6 +913,64 @@ const PHOTOS={
   Moseyuh:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Moseyuh.webp',
   Zero:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Zero.webp',
   karrigan:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Karrigan.webp',
+
+  910:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/910.webp',
+  HooXi:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/HooXi.webp',
+  phzy:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/phzy.webp',
+  jabbi:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/jabbi.webp',
+  Staehr:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Staehr.webp',
+  ryu:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/ryu.webp',
+  dem0n:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/dem0n.webp',
+  lauNX:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/lauNX.webp',
+  Krabeni:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Krabeni.webp',
+  cmtry:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/cmtry.webp',
+  dziugss:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/dziugss.webp',
+  Maka:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Maka.webp',
+  Lucky:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Lucky.webp',
+  misutaaa:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/misutaaa.webp',
+  Ex3rcice:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Ex3rcice.webp',
+  Graviti:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Graviti.webp',
+  arT:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/arT.webp',
+  dumau:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/dumau.webp',
+  latto:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/latto.webp',
+  n1ssim:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/n1ssim.webp',
+  saadzin:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/saadzin.webp',
+  kensizor:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/kensizor.webp',
+  s1mple:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/S1mple.webp',
+  electroNic:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/electroNic.webp',
+  MUTiRiS:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/MUTiRiS.webp',
+  krazy:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/krazy.webp',
+  aragornN:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/aragornN.webp',
+  LNZ:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/LNZ.webp',
+  brnz4n:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/brnz4n.webp',
+  insani:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/insani.webp',
+  venomzera:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/venomzera.webp',
+  kl1m:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/kl1m.webp',
+  JW:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/JW.webp',
+  maxster:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/maxster.webp',
+  Ro1f:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Ro1f.webp',
+  bobeksde:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/bobeksde.webp',
+  dex:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/dex.webp',
+  ztr:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/ztr.webp',
+  volt:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/volt.webp',
+  Banjo:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Banjo.webp',
+  Jorko:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/jorko.webp',
+  Matheos:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Matheos.webp',
+  junior:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/junior.webp',
+  Infinite:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Infinite.webp',
+  nosraC:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/nosraC.webp',
+  snav:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/snav.webp',
+  Jeorge:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Jeorge.webp',
+  cptkurtka023:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/cptkurtka023.webp',
+  headtr1ck:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/headtr1ck.webp',
+  zeRRoFIX:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/zeRRoFIX.webp',
+  onic:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/onic.webp',
+  Dawy:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Dawy.webp',
+  nEMANHA:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/nEMANHA.webp',
+  mhL:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/mhL.webp',
+  reck:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/reck.webp',
+  HexT:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Hext.webp',
+  Peeping:'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Peeping.webp',
 };
 // ── LOGOS DOS TIMES ──
 const TEAM_LOGOS={
@@ -925,7 +983,7 @@ const TEAM_LOGOS={
   'Spirit':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Spirit.jpg',
   'Aurora':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Aurora.jpg',
   'The MongolZ':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/The Mongolz.jpg',
-  'Astralis':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Aurora.jpg',
+  'Astralis':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Astralis.jpg',
   'FaZe':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Faze.jpg',
   'Liquid':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Liquid.jpg',
   'NRG':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/NRG.jpg',
@@ -933,6 +991,16 @@ const TEAM_LOGOS={
   'NiP':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Nip.jpg',
   'TYLOO':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Tyloo.jpg',
   '9z':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/9z.jpg',
+  '3DMAX':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/3DMAX.jpg',
+  'EYEBALLERS':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/EYEBALLERS.jpg',
+  'FOKUS':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/FOKUS.jpg',
+  'FUT':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/FUT.jpg',
+  'Inner Circle':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Inner Circle.jpg',
+  'Legacy':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Legacy.jpg',
+  'MIBR':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/MIBR.jpg',
+  'Voca':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Voca.webp',
+  'Wildcard':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Wildcard.jpg',
+  'BC.Game':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/BC.Game.jpg',
 };
 
 
@@ -1511,7 +1579,7 @@ function renderTicker(){
 }
 
 function renderHomeRank(){
-  var my=S.user?[{name:S.user.teamName||'Meu Time',owner:S.user.nick,cap:S.sel.find(function(p){return p.id===S.captain;})?.name||'—',budget:totalCost(),total:calcTotal()+1100,r7:calcTotal(),form:['w','w','w','d','w'],isMe:true}]:[];
+  var my=S.user?[{name:S.user.teamName||'Meu Time',owner:S.user.nick,cap:S.sel.find(function(p){return p.id===S.captain;})?.name||'—',budget:totalCost(),total:calcTotal(),r7:calcTotal(),form:['w','w','w','d','w'],isMe:true}]:[];
   var all=[...my,...FAKE_GLOBAL].sort(function(a,b){return b.total-a.total;}).slice(0,5);
   var rb=document.getElementById('home-rank');if(!rb)return;
   var medals=['🥇','🥈','🥉'];
@@ -1531,111 +1599,17 @@ function renderHomeRank(){
 
 function renderHomeMatches(){
   var el=document.getElementById('home-matches');if(!el)return;
-
-  var BLAST_SCHEDULE=[
-    // DIA 1 — 18 Mar (Grupo A R1)
-    {day:'2026-03-18',t1:'Falcons',sc1:2,t2:'NRG',sc2:0,time:'07:00',group:'GRP A',stage:'R1',status:'done'},
-    {day:'2026-03-18',t1:'NaVi',sc1:2,t2:'B8',sc2:1,time:'09:30',group:'GRP A',stage:'R1',status:'done'},
-    {day:'2026-03-18',t1:'Aurora',sc1:2,t2:'FaZe',sc2:1,time:'12:00',group:'GRP A',stage:'R1',status:'done'},
-    {day:'2026-03-18',t1:'FURIA',sc1:2,t2:'TYLOO',sc2:0,time:'14:30',group:'GRP A',stage:'R1',status:'done'},
-    // DIA 2 — 19 Mar (Grupo B R1)
-    {day:'2026-03-19',t1:'PARIVISION',sc1:2,t2:'NiP',sc2:1,time:'07:00',group:'GRP B',stage:'R1',status:'done'},
-    {day:'2026-03-19',t1:'Spirit',sc1:2,t2:'Liquid',sc2:0,time:'09:30',group:'GRP B',stage:'R1',status:'done'},
-    {day:'2026-03-19',t1:'The MongolZ',sc1:2,t2:'MOUZ',sc2:0,time:'12:00',group:'GRP B',stage:'R1',status:'done'},
-    {day:'2026-03-19',t1:'Vitality',sc1:2,t2:'9z',sc2:0,time:'14:30',group:'GRP B',stage:'R1',status:'done'},
-    // DIA 3 — 21 Mar (R2 UB)
-    {day:'2026-03-21',t1:'NaVi',sc1:2,t2:'Falcons',sc2:1,time:'07:00',group:'UB',stage:'R2',status:'done'},
-    {day:'2026-03-21',t1:'Aurora',sc1:2,t2:'FURIA',sc2:0,time:'09:30',group:'UB',stage:'R2',status:'done'},
-    {day:'2026-03-21',t1:'Vitality',sc1:2,t2:'The MongolZ',sc2:0,time:'12:00',group:'UB',stage:'R2',status:'done'},
-    {day:'2026-03-21',t1:'PARIVISION',sc1:2,t2:'Spirit',sc2:0,time:'14:30',group:'UB',stage:'R2',status:'done'},
-    // DIA 4 — 22 Mar (R2 LB)
-    {day:'2026-03-22',t1:'NRG',sc1:2,t2:'B8',sc2:0,time:'07:00',group:'LB',stage:'R2',status:'done'},
-    {day:'2026-03-22',t1:'TYLOO',sc1:2,t2:'FaZe',sc2:1,time:'09:30',group:'LB',stage:'R2',status:'done'},
-    {day:'2026-03-22',t1:'9z',sc1:2,t2:'MOUZ',sc2:1,time:'12:00',group:'LB',stage:'R2',status:'done'},
-    {day:'2026-03-22',t1:'Liquid',sc1:2,t2:'NiP',sc2:1,time:'14:30',group:'LB',stage:'R2',status:'done'},
-    // DIA 5 — 24 Mar (R3)
-    {day:'2026-03-24',t1:'NaVi',sc1:2,t2:'Aurora',sc2:0,time:'07:00',group:'UB',stage:'R3 Semi',status:'done'},
-    {day:'2026-03-24',t1:'Falcons',sc1:2,t2:'FURIA',sc2:1,time:'09:30',group:'LB',stage:'R3',status:'done'},
-    {day:'2026-03-24',t1:'Vitality',sc1:2,t2:'PARIVISION',sc2:0,time:'12:00',group:'UB',stage:'R3 Semi',status:'done'},
-    {day:'2026-03-24',t1:'The MongolZ',sc1:2,t2:'Spirit',sc2:0,time:'14:30',group:'LB',stage:'R3',status:'done'},
-    // PLAYOFFS — 27 Mar (QF · Rotterdam Ahoy)
-    {day:'2026-03-27',t1:'Aurora',sc1:null,t2:'The MongolZ',sc2:null,time:'11:00',group:'PLAYOFFS',stage:'QF · BO3',status:'upcoming'},
-    {day:'2026-03-27',t1:'PARIVISION',sc1:null,t2:'Falcons',sc2:null,time:'14:30',group:'PLAYOFFS',stage:'QF · BO3',status:'upcoming'},
-    // PLAYOFFS — 28 Mar (SF)
-    {day:'2026-03-28',t1:'Vitality',sc1:null,t2:'TBD',sc2:null,time:'11:00',group:'PLAYOFFS',stage:'SF · BO3',status:'upcoming'},
-    {day:'2026-03-28',t1:'NaVi',sc1:null,t2:'TBD',sc2:null,time:'14:30',group:'PLAYOFFS',stage:'SF · BO3',status:'upcoming'},
-    // PLAYOFFS — 29 Mar (Grande Final)
-    {day:'2026-03-29',t1:'TBD',sc1:null,t2:'TBD',sc2:null,time:'08:30',group:'PLAYOFFS',stage:'GRANDE FINAL · BO5',status:'upcoming'},
-  ];
-
-  var now=new Date();
-  var todayStr=now.toISOString().slice(0,10);
-
-  var todayMatches=BLAST_SCHEDULE.filter(function(m){return m.day===todayStr;});
-  if(todayMatches.length===0){
-    var future=BLAST_SCHEDULE.filter(function(m){return m.day>=todayStr&&m.status!=='done';});
-    if(future.length>0){
-      var nextDay=future[0].day;
-      todayMatches=BLAST_SCHEDULE.filter(function(m){return m.day===nextDay;});
-    }
-  }
-  if(todayMatches.length===0){
-    // Mostrar últimas partidas jogadas
-    var past=BLAST_SCHEDULE.filter(function(m){return m.status==='done';});
-    if(past.length>0){
-      var lastDay=past[past.length-1].day;
-      todayMatches=past.filter(function(m){return m.day===lastDay;});
-    }
-  }
-  if(todayMatches.length===0){
-    el.innerHTML='<div style="font-size:.72rem;color:var(--dim);text-align:center;padding:.5rem">Sem partidas</div>';
-    return;
-  }
-
-  el.innerHTML=todayMatches.map(function(m){
-    var isPlay=m.group==='PLAYOFFS';
-    var isLB=m.group==='LB';
-    var grpColor=isPlay?'var(--acc)':m.group==='UB'?'var(--blue)':isLB?'var(--red)':m.group==='GRP A'?'var(--blue)':'var(--grn)';
-    var grpBg=isPlay?'rgba(232,255,71,.08)':m.group==='UB'?'rgba(77,159,255,.1)':isLB?'rgba(255,77,106,.1)':m.group==='GRP A'?'rgba(77,159,255,.1)':'rgba(45,255,143,.08)';
-    var done=m.status==='done';
-    var isLive=false;
-    var matchDate=new Date(m.day+'T'+m.time+':00-03:00');
-    var diff=now-matchDate;
-    if(diff>0&&diff<7200000)isLive=true;
-    var w=done&&m.sc1!==null?(m.sc1>m.sc2?m.t1:m.t2):null;
-
-    function teamSpan(name,score,isWin){
-      var dim=done&&!isWin;
-      return '<div style="display:flex;align-items:center;gap:.3rem;min-width:0">'+
-        (TEAM_LOGOS&&TEAM_LOGOS[name]?'<img src="'+TEAM_LOGOS[name]+'" style="width:15px;height:15px;object-fit:contain;flex-shrink:0">':'')+
-        '<span style="font-size:.82rem;font-weight:'+(isWin?700:500)+';color:'+(dim?'rgba(255,255,255,.35)':'var(--txt)')+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+name+'</span>'+
-        (done&&score!==null?'<span style="font-size:.78rem;font-weight:'+(isWin?700:400)+';color:'+(isWin?'var(--acc)':'rgba(255,255,255,.3)')+';margin-left:auto;flex-shrink:0;min-width:12px;text-align:right">'+score+'</span>':'')+
-      '</div>';
-    }
-
-    return '<div style="padding:.5rem .65rem;background:var(--surf);border:1px solid '+(isLive?'rgba(255,77,106,.35)':isPlay?'rgba(232,255,71,.15)':'var(--bord)')+';border-radius:8px;margin-bottom:.35rem;'+(isPlay?'background:rgba(232,255,71,.03)':'')+'">' +
-      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.3rem">'+
-        '<span style="font-size:.55rem;font-weight:700;padding:1px 6px;border-radius:3px;background:'+grpBg+';color:'+grpColor+'">'+m.group+' · '+m.stage+'</span>'+
-        '<span style="font-size:.58rem;color:'+(isLive?'var(--red)':done?'var(--dim)':'rgba(255,255,255,.5)')+';font-family:var(--fm)">'+
-          (isLive?'🔴 AO VIVO':done?'✓ encerrado':m.time+' BRT')+
-        '</span>'+
-      '</div>'+
-      '<div style="display:flex;flex-direction:column;gap:3px">'+
-        teamSpan(m.t1,m.sc1,w===m.t1)+
-        teamSpan(m.t2,m.sc2,w===m.t2)+
-      '</div>'+
-    '</div>';
-  }).join('');
+  el.innerHTML='<div style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.75rem">'+
+    '<div style="font-size:1.5rem;margin-bottom:.5rem">📅</div>'+
+    'Nenhuma partida hoje<br><span style="font-size:.65rem">As partidas serão exibidas quando o torneio começar em 4 Abr</span>'+
+  '</div>';
 }
-
-
 function renderHighlights(){
   var el=document.getElementById('home-highlights');if(!el)return;
   var events=[
-    {name:'BLAST Open Rotterdam',date:'18-23 Mar 2026',local:'Rotterdam, NL',prize:'$1.1M',tier:'S',color:'var(--red)',live:true},
-    {name:'IEM Krakow 2026',date:'Abr 2026',local:'Krakow, PL',prize:'$1M',tier:'S',color:'var(--oran)',live:false},
-    {name:'PGL Cluj-Napoca 2026',date:'Abr-Mai 2026',local:'Cluj-Napoca, RO',prize:'$500K',tier:'A',color:'var(--teal)',live:false},
-    {name:'IEM Cologne Major 2026',date:'Jun 2026',local:'Cologne, DE',prize:'$1.25M',tier:'MAJOR',color:'var(--acc)',live:false},
+    {name:'PGL Bucharest 2026',date:'4-11 Abr 2026',local:'Bucareste, RO',prize:'$1.25M',tier:'S',color:'var(--grn)',live:true},
+    {name:'BLAST Open Rotterdam',date:'18-29 Mar 2026',local:'Rotterdam, NL',prize:'$1.1M',tier:'S',color:'var(--dim)',live:false,done:true},
+    {name:'IEM Cologne Major 2026',date:'Jul 2026',local:'Cologne, DE',prize:'$1.25M',tier:'MAJOR',color:'var(--acc)',live:false},
     {name:'Esports World Cup 2026',date:'Ago 2026',local:'Riyadh, SA',prize:'$2M',tier:'S',color:'var(--pur)',live:false},
     {name:'PGL Singapore Major 2026',date:'Nov-Dez 2026',local:'Singapore',prize:'$1.25M',tier:'MAJOR',color:'var(--acc)',live:false},
   ];
@@ -1643,13 +1617,15 @@ function renderHighlights(){
     var tierBg=e.tier==='MAJOR'?'rgba(232,255,71,.12)':e.tier==='S'?'rgba(255,153,68,.1)':'rgba(77,159,255,.1)';
     var tierCol=e.tier==='MAJOR'?'var(--acc)':e.tier==='S'?'var(--oran)':'var(--blue)';
     var tierBord=e.tier==='MAJOR'?'rgba(232,255,71,.2)':e.tier==='S'?'rgba(255,153,68,.2)':'rgba(77,159,255,.2)';
-    var bord=e.live?'rgba(255,77,106,.25)':'var(--bord)';
+    var bord=e.live?'rgba(45,255,143,.25)':e.done?'rgba(107,117,133,.15)':'var(--bord)';
     return '<div style="display:flex;align-items:center;gap:.75rem;padding:.55rem .85rem;background:var(--card);border:1px solid '+bord+';border-radius:10px">'+
       '<div style="width:3px;height:36px;border-radius:2px;background:'+e.color+';flex-shrink:0"></div>'+
       '<div style="flex:1;min-width:0">'+
         '<div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.15rem">'+
-          (e.live?'<div style="width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink .9s infinite;flex-shrink:0"></div>':'')+
-          '<div style="font-size:.82rem;font-weight:700;color:var(--txt)">'+e.name+'</div>'+
+          (e.live?'<div style="width:6px;height:6px;border-radius:50%;background:var(--grn);animation:blink .9s infinite;flex-shrink:0"></div>':'')+
+          (e.done?'<div style="width:6px;height:6px;border-radius:50%;background:var(--dim);flex-shrink:0"></div>':'')+
+          '<div style="font-size:.82rem;font-weight:700;color:'+(e.done?'var(--dim)':'var(--txt)')+'">'+e.name+'</div>'+
+          (e.done?'<span style="font-size:.5rem;padding:1px 5px;border-radius:3px;background:rgba(232,255,71,.1);color:var(--acc)">🏆 Vitality</span>':'')+
         '</div>'+
         '<div style="font-size:.65rem;color:var(--dim)">'+e.local+'</div>'+
       '</div>'+
@@ -1776,19 +1752,14 @@ function renderStatsSection(){
   );
 }
 
-function renderTopScores(){
-  var el=document.getElementById('top-scores');if(!el)return;
-  var top=[...ALL].sort(function(a,b){return b.pts-a.pts;}).slice(0,5);
-  el.innerHTML=top.map(function(p,i){
-    return '<div style="display:flex;align-items:center;gap:.5rem;padding:.35rem 0;border-bottom:1px solid var(--bord)">'+
-      '<div style="font-size:.72rem;font-family:var(--fm);min-width:18px;color:var(--dim)">'+(i+1)+'</div>'+
-      photoMini(p.name,24)+
-      '<div style="flex:1"><div style="font-size:.78rem;font-weight:600">'+p.name+'</div><div style="font-size:.6rem;color:var(--dim)">'+p.team+'</div></div>'+
-      '<div style="font-family:var(--fm);font-size:.82rem;font-weight:700;color:var(--acc)">'+p.pts+'</div>'+
-      '</div>';
-  }).join('');
-}
 
+function renderTopScores(){
+  var el=document.getElementById('home-top');if(!el)return;
+  el.innerHTML='<div style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.75rem">'+
+    '<div style="font-size:1.2rem;margin-bottom:.4rem">📊</div>'+
+    'Disponível após R1'+
+  '</div>';
+}
 function renderMetaPicks(){
   var el=document.getElementById('meta-picks');if(!el)return;
   var top=[...ALL].filter(function(p){return BLAST_TEAMS_POOL.includes(p.team);}).sort(function(a,b){return b.own-a.own;}).slice(0,5);
@@ -1955,180 +1926,16 @@ function renderBlastMatches(){
   }).join('');
 }
 
-function renderBlastBracket(){
-  var el=document.getElementById('blast-bracket-view');if(!el)return;
-
-  var teamColors={
-    'Falcons':'#e8a020','FURIA':'#ff6b35','NaVi':'#f5d000','NRG':'#e8ff47',
-    'Aurora':'#9b59b6','FaZe':'#c8102e','B8':'#1a8cff','TYLOO':'#d4001e',
-    'Vitality':'#e8ff47','MOUZ':'#ff4500','Spirit':'#4a90d9','Liquid':'#00a3e0',
-    'The MongolZ':'#e84c4c','PARIVISION':'#ff9c1a','NiP':'#ffde00','9z':'#00aaff'
-  };
-
-  function mc(t1,s1,t2,s2,status){
-    // status: 'done','live','upcoming'
-    var done=status==='done';
-    var w=done?(s1>s2?t1:t2):null;
-    var myT1=BLAST_SEL.some(function(p){return p.team===t1;});
-    var myT2=BLAST_SEL.some(function(p){return p.team===t2;});
-    function row(name,score,isWin,myPick){
-      var c=teamColors[name]||'#888';
-      return '<div style="display:flex;align-items:center;gap:6px;padding:6px 8px;background:'+(done&&isWin?'rgba(255,255,255,.04)':'transparent')+';'+(done&&!isWin?'opacity:.45':'')+'">' +
-        (TEAM_LOGOS&&TEAM_LOGOS[name]?
-          '<img src="'+TEAM_LOGOS[name]+'" style="width:20px;height:20px;object-fit:contain;flex-shrink:0">':
-          '<div style="width:20px;height:20px;border-radius:3px;background:'+c+';flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.38rem;font-weight:900;color:#000">'+name.substring(0,3).toUpperCase()+'</div>')+
-        '<span style="flex:1;font-size:.78rem;font-weight:'+(done&&isWin?700:500)+';color:'+(done&&isWin?'#fff':'rgba(255,255,255,.8)')+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90px">'+name+(myPick?' <span style="color:var(--acc);font-size:.6rem">★</span>':'')+' </span>'+
-        (done?'<span style="font-size:.8rem;font-weight:'+(isWin?700:400)+';color:'+(isWin?'var(--acc)':'rgba(255,255,255,.3)')+';min-width:14px;text-align:center">'+score+'</span>':'<span style="font-size:.6rem;color:rgba(255,255,255,.25)">-</span>')+
-        '</div>';
-    }
-    var border=done?(w===t1||w===t2?'rgba(232,255,71,.25)':'rgba(255,255,255,.08)'):'rgba(255,255,255,.08)';
-    if(status==='live') border='rgba(255,77,106,.5)';
-    return '<div style="background:#0f1218;border:1px solid '+border+';border-radius:7px;overflow:hidden;min-width:190px;max-width:190px">'+
-      (status==='live'?'<div style="background:rgba(255,77,106,.15);padding:2px 8px;font-size:.52rem;font-weight:700;color:var(--red);letter-spacing:1px">🔴 AO VIVO</div>':'')+
-      row(t1,s1,w===t1,myT1)+
-      '<div style="height:1px;background:rgba(255,255,255,.06)"></div>'+
-      row(t2,s2,w===t2,myT2)+
-      '</div>';
-  }
-
-  function tbd(){
-    return '<div style="background:#0a0d12;border:1px solid rgba(255,255,255,.05);border-radius:7px;overflow:hidden;min-width:190px;max-width:190px;opacity:.35">'+
-      '<div style="padding:6px 8px;font-size:.72rem;color:rgba(255,255,255,.3)">TBD</div>'+
-      '<div style="height:1px;background:rgba(255,255,255,.04)"></div>'+
-      '<div style="padding:6px 8px;font-size:.72rem;color:rgba(255,255,255,.3)">TBD</div>'+
-      '</div>';
-  }
-
-  function col(header,color,cards,paddingTop){
-    return '<div style="display:flex;flex-direction:column;min-width:205px;padding-top:'+(paddingTop||0)+'px">'+
-      '<div style="font-size:.55rem;font-weight:800;color:'+color+';letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;padding-bottom:5px;border-bottom:1.5px solid '+color+';opacity:.85">'+header+'</div>'+
-      '<div style="display:flex;flex-direction:column;gap:6px">'+cards+'</div>'+
-      '</div>';
-  }
-
-  function arrow(){
-    return '<div style="display:flex;align-items:center;padding:0 4px;align-self:center;color:rgba(255,255,255,.12);font-size:.9rem;margin-top:8px">›</div>';
-  }
-
-  function sep(){
-    return '<div style="width:1px;background:rgba(255,255,255,.05);margin:0 10px;align-self:stretch"></div>';
-  }
-
-  function sectionLabel(label,color){
-    return '<div style="font-size:.58rem;font-weight:800;color:'+color+';letter-spacing:2px;text-transform:uppercase;padding:5px 0 5px 10px;border-left:3px solid '+color+';margin-bottom:12px;opacity:.9">'+label+'</div>';
-  }
-
-  el.innerHTML='<div style="overflow-x:auto;padding:8px 0 16px;font-family:var(--f)">'+
-
-  // ── Legenda ──
-  '<div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;font-size:.62rem;color:rgba(255,255,255,.35);flex-wrap:wrap">'+
-    '<span style="color:var(--acc)">★ = jogador no seu time</span>'+
-    '<span>✅ = classificado para playoffs</span>'+
-    '<span>❌ = eliminado</span>'+
-  '</div>'+
-
-  // ══ GROUP STAGE ══
-  sectionLabel('GROUP STAGE · 18–24 MAR','rgba(150,150,200,.8)')+
-  '<div style="display:flex;align-items:flex-start;gap:4px;margin-bottom:24px;flex-wrap:nowrap">'+
-
-    // R1
-    col('Rnd 1 · Grupo A','rgba(77,159,255,.7)',
-      mc('Falcons',2,'NRG',0,'done')+
-      mc('NaVi',2,'B8',1,'done')+
-      mc('Aurora',2,'FaZe',1,'done')+
-      mc('FURIA',2,'TYLOO',0,'done')
-    )+
-    arrow()+
-    // R2 UB (vencedores R1)
-    col('Rnd 2 · UB','rgba(232,255,71,.6)',
-      mc('NaVi',2,'Falcons',1,'done')+
-      mc('Aurora',2,'FURIA',0,'done')
-    , 28)+
-    arrow()+
-    // R3 (UB Semis)
-    col('Rnd 3 · SF','rgba(232,255,71,.8)',
-      mc('NaVi',2,'Aurora',0,'done')
-    , 56)+
-
-    sep()+
-
-    // R1 Grupo B
-    col('Rnd 1 · Grupo B','rgba(45,255,143,.7)',
-      mc('PARIVISION',2,'NiP',1,'done')+
-      mc('Vitality',2,'9z',0,'done')+
-      mc('The MongolZ',2,'MOUZ',0,'done')+
-      mc('Spirit',2,'Liquid',0,'done')
-    )+
-    arrow()+
-    // R2 UB (vencedores R1 B)
-    col('Rnd 2 · UB','rgba(232,255,71,.6)',
-      mc('Vitality',2,'The MongolZ',0,'done')+
-      mc('PARIVISION',2,'Spirit',0,'done')
-    , 28)+
-    arrow()+
-    // R3 SF B
-    col('Rnd 3 · SF','rgba(232,255,71,.8)',
-      mc('Vitality',2,'PARIVISION',0,'done')
-    , 56)+
-
-  '</div>'+
-
-  // Repescagem
-  sectionLabel('REPESCAGEM (LB) · 22–24 MAR','rgba(255,77,106,.7)')+
-  '<div style="display:flex;align-items:flex-start;gap:4px;margin-bottom:24px;flex-wrap:nowrap">'+
-    col('LB Rnd 1','rgba(255,77,106,.7)',
-      mc('NRG',2,'B8',0,'done')+
-      mc('TYLOO',2,'FaZe',1,'done')+
-      mc('9z',2,'MOUZ',1,'done')+
-      mc('Liquid',2,'NiP',1,'done')
-    )+
-    arrow()+
-    col('LB Rnd 2 (vs Perdedores UB)','rgba(255,120,80,.7)',
-      mc('Falcons',2,'FURIA',1,'done')+
-      mc('The MongolZ',2,'Spirit',0,'done')
-    ,28)+
-    '<div style="display:flex;flex-direction:column;gap:4px;align-self:flex-start;padding-top:28px;padding-left:6px;font-size:.58rem;color:rgba(255,255,255,.3)">'+
-      '<div>❌ NRG eliminado</div><div>❌ TYLOO eliminado</div>'+
-      '<div>❌ 9z eliminado</div><div>❌ NiP eliminado</div>'+
-      '<div style="margin-top:6px">❌ FURIA eliminado</div><div>❌ Spirit eliminado</div>'+
-    '</div>'+
-  '</div>'+
-
-  // ══ PLAYOFFS ══
-  sectionLabel('🏆 PLAYOFFS · AHOY ARENA ROTTERDAM · 27–29 MAR','rgba(232,255,71,.95)')+
-  '<div style="display:flex;align-items:flex-start;gap:4px;flex-wrap:nowrap">'+
-
-    // QF
-    col('Quartas de Final · 27 Mar','rgba(255,153,68,.8)',
-      mc('Aurora','?','The MongolZ','?','upcoming')+
-      mc('PARIVISION','?','Falcons','?','upcoming')
-    )+
-    arrow()+
-
-    // SF
-    col('Semifinais · 28 Mar','rgba(232,255,71,.75)',
-      mc('Vitality','?','TBD','?','upcoming')+
-      mc('NaVi','?','TBD','?','upcoming')
-    , 28)+
-    arrow()+
-
-    // Final
-    '<div style="display:flex;flex-direction:column;min-width:205px;padding-top:48px">'+
-      '<div style="font-size:.55rem;font-weight:800;color:rgba(232,255,71,.9);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;padding-bottom:5px;border-bottom:1.5px solid rgba(232,255,71,.6)">🏆 Grande Final · 29 Mar</div>'+
-      tbd()+
-      '<div style="margin-top:12px;padding:12px;background:rgba(232,255,71,.05);border:1px solid rgba(232,255,71,.2);border-radius:8px;text-align:center">'+
-        '<div style="font-size:.6rem;color:var(--acc);font-weight:700;letter-spacing:1px;margin-bottom:4px">CAMPEÃO</div>'+
-        '<div style="font-size:2rem">🏆</div>'+
-        '<div style="font-size:.95rem;font-weight:800;font-family:var(--fm);color:var(--acc)">$250.000</div>'+
-        '<div style="font-size:.58rem;color:rgba(255,255,255,.35);margin-top:3px">BO5 · Rotterdam Ahoy</div>'+
-      '</div>'+
-    '</div>'+
-
-  '</div>'+
-  '</div>';
+function renderBlastBracket() {
+  var el = document.getElementById('blast-bracket-view');
+  if (!el) return;
+  el.innerHTML =
+    '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 1rem;gap:1rem;text-align:center">' +
+      '<div style="font-size:2rem">🏆</div>' +
+      '<div style="font-size:.9rem;font-weight:700;color:var(--txt)">Chaveamento em breve</div>' +
+      '<div style="font-size:.72rem;color:var(--dim);max-width:280px">O bracket do PGL Bucharest 2026 será disponibilizado assim que o torneio começar.</div>' +
+    '</div>';
 }
-
-
 function lTab(id,el){
   document.querySelectorAll('#page-ligas .ptab').forEach(function(t){t.classList.remove('act');});
   document.querySelectorAll('#page-ligas .ptab-c').forEach(function(t){t.classList.remove('act');});
@@ -2348,7 +2155,7 @@ function entrarGlobal(code,name){
 var _rankFilter='global';
 function rankFilter(f,el){_rankFilter=f;document.querySelectorAll('.rf').forEach(function(r){r.classList.remove('act');});el.classList.add('act');renderRanking();}
 function renderRanking(){
-  var my=S.user?[{name:S.user.teamName||'Meu Time',owner:S.user.nick,cap:S.sel.find(function(p){return p.id===S.captain;})?.name||'—',budget:totalCost(),r7:calcTotal(),total:calcTotal()+1100,form:['w','w','w','d','w'],isMe:true}]:[];
+  var my=S.user?[{name:S.user.teamName||'Meu Time',owner:S.user.nick,cap:S.sel.find(function(p){return p.id===S.captain;})?.name||'—',budget:totalCost(),r7:calcTotal(),total:calcTotal(),form:['w','w','w','d','w'],isMe:true}]:[];
   var all=[...my,...FAKE_GLOBAL].sort(function(a,b){return b.total-a.total;});
   var podEl=document.getElementById('rank-podium');
   if(podEl){
@@ -3213,7 +3020,7 @@ function renderCampeonatos(){
   var el=document.getElementById('campeonatos-content');if(!el)return;
   var camps=[
     {id:'rotterdam',name:'BLAST Open Rotterdam 2026',status:'encerrado',dates:'18-29 Mar 2026',prize:'$1.100.000',teams:16,location:'Rotterdam, Holanda',desc:'Encerrado · Campeão: Vitality 3-0 NaVi',accent:'var(--acc)',colRgb:'232,255,71',logo:'📜'},
-    {id:'pgl',name:'PGL Bucharest 2026',status:'live',dates:'4-11 Abr 2026',prize:'$1.250.000',teams:16,location:'Bucareste, Romênia',desc:'Group Stage em andamento. $200K para o campeão.',accent:'var(--red)',colRgb:'255,77,106',logo:'🏆'},
+    {id:'pgl',name:'PGL Bucharest 2026',status:'live',dates:'4-11 Abr 2026',prize:'$1.250.000',teams:16,location:'Bucareste, Romênia',desc:'Group Stage em andamento. $200K para o campeão.',accent:'var(--grn)',colRgb:'45,255,143',logo:'🏆'},
     {id:'iem',name:'IEM Dallas 2026',status:'future',dates:'19 Mai – 1 Jun 2026',prize:'$300.000',teams:16,location:'Dallas, EUA',desc:'Evento IEM em solo norte-americano.',accent:'var(--pur)',colRgb:'192,132,252',logo:'🎯'},
     {id:'major',name:'IEM Cologne Major 2026',status:'future',dates:'Jul 2026',prize:'$1.250.000',teams:24,location:'Cologne, Alemanha',desc:'O Major mais icônico do CS2.',accent:'var(--acc)',colRgb:'232,255,71',logo:'👑'},
   ];
