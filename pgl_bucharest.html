@@ -802,7 +802,7 @@ var BLAST_CAP=localStorage.getItem('pgl_blast_cap')||null;
 
 // ── SISTEMA DE RODADAS ──
 var _savedRound = parseInt(localStorage.getItem('pgl_blast_round')||'1');
-if(_savedRound < 1) _savedRound = 1;
+if(_savedRound < 1) _savedRound = 1; if(_savedRound > 5) _savedRound = 5;
 var BLAST_ROUND = _savedRound;
 var BLAST_FASE = localStorage.getItem('pgl_blast_fase') || 'grupos';
 var BLAST_PLAYOFF_FASE = localStorage.getItem('pgl_blast_playoff_fase') || 'qf';
@@ -982,7 +982,7 @@ const TEAM_LOGOS={
   'Falcons':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Falcons.jpg',
   'Spirit':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Spirit.jpg',
   'Aurora':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Aurora.jpg',
-  'The MongolZ':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/The Mongolz.jpg',
+  'The MongolZ':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/The%20Mongolz.jpg',
   'Astralis':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Astralis.jpg',
   'FaZe':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Faze.jpg',
   'Liquid':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Liquid.jpg',
@@ -995,7 +995,7 @@ const TEAM_LOGOS={
   'EYEBALLERS':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/EYEBALLERS.jpg',
   'FOKUS':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/FOKUS.jpg',
   'FUT':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/FUT.jpg',
-  'Inner Circle':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Inner Circle.jpg',
+  'Inner Circle':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Inner%20Circle.jpg',
   'Legacy':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Legacy.jpg',
   'MIBR':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/MIBR.jpg',
   'Voca':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Voca.webp',
@@ -1075,11 +1075,55 @@ const HLTV_TOP20={
 const MATCHES=[];
 
 const BLAST_MATCHES=[
-  {rnd:1,day:'Sex 04/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO1',stage:'Group Stage',status:'upcoming',playoff_fase:null},
-  {rnd:2,day:'Sab 05/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'Group Stage',status:'upcoming',playoff_fase:null},
-  {rnd:3,day:'Dom 06/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'Group Stage',status:'upcoming',playoff_fase:null},
-  {rnd:4,day:'Seg 07/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'Group Stage',status:'upcoming',playoff_fase:null},
-  {rnd:5,day:'Qui 11/04',time:'07:30',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'GRANDE FINAL',status:'upcoming',playoff_fase:'final'},
+  // ── R1 · BO1 · 4 Abr ──
+  {rnd:1,day:'Sex 04/04',time:'08:00',t1:'FUT',sc1:null,t2:'Inner Circle',sc2:null,fmt:'BO1',stage:'R1 · Swiss',rec1:'0-0',rec2:'0-0',status:'upcoming',playoff_fase:null},
+  {rnd:1,day:'Sex 04/04',time:'08:00',t1:'3DMAX',sc1:null,t2:'FOKUS',sc2:null,fmt:'BO1',stage:'R1 · Swiss',rec1:'0-0',rec2:'0-0',status:'upcoming',playoff_fase:null},
+  {rnd:1,day:'Sex 04/04',time:'08:00',t1:'B8',sc1:null,t2:'Wildcard',sc2:null,fmt:'BO1',stage:'R1 · Swiss',rec1:'0-0',rec2:'0-0',status:'upcoming',playoff_fase:null},
+  {rnd:1,day:'Sex 04/04',time:'08:00',t1:'NRG',sc1:null,t2:'Voca',sc2:null,fmt:'BO1',stage:'R1 · Swiss',rec1:'0-0',rec2:'0-0',status:'upcoming',playoff_fase:null},
+  {rnd:1,day:'Sex 04/04',time:'12:00',t1:'The MongolZ',sc1:null,t2:'BC.Game',sc2:null,fmt:'BO1',stage:'R1 · Swiss',rec1:'0-0',rec2:'0-0',status:'upcoming',playoff_fase:null},
+  {rnd:1,day:'Sex 04/04',time:'12:00',t1:'Astralis',sc1:null,t2:'MIBR',sc2:null,fmt:'BO1',stage:'R1 · Swiss',rec1:'0-0',rec2:'0-0',status:'upcoming',playoff_fase:null},
+  {rnd:1,day:'Sex 04/04',time:'12:00',t1:'PARIVISION',sc1:null,t2:'Legacy',sc2:null,fmt:'BO1',stage:'R1 · Swiss',rec1:'0-0',rec2:'0-0',status:'upcoming',playoff_fase:null},
+  {rnd:1,day:'Sex 04/04',time:'12:00',t1:'FaZe',sc1:null,t2:'EYEBALLERS',sc2:null,fmt:'BO1',stage:'R1 · Swiss',rec1:'0-0',rec2:'0-0',status:'upcoming',playoff_fase:null},
+  // ── R2 · BO1 · 5 Abr ──
+  {rnd:2,day:'Sab 05/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO1',stage:'R2 · Swiss',rec1:'1-0',rec2:'1-0',status:'upcoming',playoff_fase:null},
+  {rnd:2,day:'Sab 05/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO1',stage:'R2 · Swiss',rec1:'1-0',rec2:'1-0',status:'upcoming',playoff_fase:null},
+  {rnd:2,day:'Sab 05/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO1',stage:'R2 · Swiss',rec1:'1-0',rec2:'1-0',status:'upcoming',playoff_fase:null},
+  {rnd:2,day:'Sab 05/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO1',stage:'R2 · Swiss',rec1:'1-0',rec2:'1-0',status:'upcoming',playoff_fase:null},
+  {rnd:2,day:'Sab 05/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO1',stage:'R2 · Swiss',rec1:'0-1',rec2:'0-1',status:'upcoming',playoff_fase:null},
+  {rnd:2,day:'Sab 05/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO1',stage:'R2 · Swiss',rec1:'0-1',rec2:'0-1',status:'upcoming',playoff_fase:null},
+  {rnd:2,day:'Sab 05/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO1',stage:'R2 · Swiss',rec1:'0-1',rec2:'0-1',status:'upcoming',playoff_fase:null},
+  {rnd:2,day:'Sab 05/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO1',stage:'R2 · Swiss',rec1:'0-1',rec2:'0-1',status:'upcoming',playoff_fase:null},
+  // ── R3 · BO3 · 6 Abr ──
+  {rnd:3,day:'Dom 06/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R3 · Swiss',rec1:'2-0',rec2:'2-0',status:'upcoming',playoff_fase:null},
+  {rnd:3,day:'Dom 06/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R3 · Swiss',rec1:'2-0',rec2:'2-0',status:'upcoming',playoff_fase:null},
+  {rnd:3,day:'Dom 06/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R3 · Swiss',rec1:'1-1',rec2:'1-1',status:'upcoming',playoff_fase:null},
+  {rnd:3,day:'Dom 06/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R3 · Swiss',rec1:'1-1',rec2:'1-1',status:'upcoming',playoff_fase:null},
+  {rnd:3,day:'Dom 06/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R3 · Swiss',rec1:'1-1',rec2:'1-1',status:'upcoming',playoff_fase:null},
+  {rnd:3,day:'Dom 06/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R3 · Swiss',rec1:'1-1',rec2:'1-1',status:'upcoming',playoff_fase:null},
+  {rnd:3,day:'Dom 06/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R3 · Swiss',rec1:'0-2',rec2:'0-2',status:'upcoming',playoff_fase:null},
+  {rnd:3,day:'Dom 06/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R3 · Swiss',rec1:'0-2',rec2:'0-2',status:'upcoming',playoff_fase:null},
+  // ── R4 · BO3 · 7 Abr ──
+  {rnd:4,day:'Seg 07/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R4 · Swiss',rec1:'2-1',rec2:'2-1',status:'upcoming',playoff_fase:null},
+  {rnd:4,day:'Seg 07/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R4 · Swiss',rec1:'2-1',rec2:'2-1',status:'upcoming',playoff_fase:null},
+  {rnd:4,day:'Seg 07/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R4 · Swiss',rec1:'2-1',rec2:'2-1',status:'upcoming',playoff_fase:null},
+  {rnd:4,day:'Seg 07/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R4 · Swiss',rec1:'2-1',rec2:'2-1',status:'upcoming',playoff_fase:null},
+  {rnd:4,day:'Seg 07/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R4 · Swiss',rec1:'1-2',rec2:'1-2',status:'upcoming',playoff_fase:null},
+  {rnd:4,day:'Seg 07/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R4 · Swiss',rec1:'1-2',rec2:'1-2',status:'upcoming',playoff_fase:null},
+  {rnd:4,day:'Seg 07/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R4 · Swiss',rec1:'1-2',rec2:'1-2',status:'upcoming',playoff_fase:null},
+  {rnd:4,day:'Seg 07/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R4 · Swiss',rec1:'1-2',rec2:'1-2',status:'upcoming',playoff_fase:null},
+  // ── R5 · BO3 · 8 Abr ──
+  {rnd:5,day:'Ter 08/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R5 · Swiss',rec1:'2-2',rec2:'2-2',status:'upcoming',playoff_fase:null},
+  {rnd:5,day:'Ter 08/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R5 · Swiss',rec1:'2-2',rec2:'2-2',status:'upcoming',playoff_fase:null},
+  {rnd:5,day:'Ter 08/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R5 · Swiss',rec1:'2-2',rec2:'2-2',status:'upcoming',playoff_fase:null},
+  {rnd:5,day:'Ter 08/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'R5 · Swiss',rec1:'2-2',rec2:'2-2',status:'upcoming',playoff_fase:null},
+  // ── PLAYOFFS ──
+  {rnd:6,day:'Qua 09/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'QF · Quartas',status:'upcoming',playoff_fase:'qf'},
+  {rnd:6,day:'Qua 09/04',time:'12:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'QF · Quartas',status:'upcoming',playoff_fase:'qf'},
+  {rnd:6,day:'Qua 09/04',time:'16:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'QF · Quartas',status:'upcoming',playoff_fase:'qf'},
+  {rnd:6,day:'Qua 09/04',time:'20:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'QF · Quartas',status:'upcoming',playoff_fase:'qf'},
+  {rnd:7,day:'Qui 10/04',time:'08:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'SF · Semifinais',status:'upcoming',playoff_fase:'sf'},
+  {rnd:7,day:'Qui 10/04',time:'14:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO3',stage:'SF · Semifinais',status:'upcoming',playoff_fase:'sf'},
+  {rnd:8,day:'Sex 11/04',time:'13:00',t1:'TBD',sc1:null,t2:'TBD',sc2:null,fmt:'BO5',stage:'GRANDE FINAL',status:'upcoming',playoff_fase:'final'},
 ];
 
 const BLAST_PICKS=JSON.parse(localStorage.getItem('blast_picks')||'{}');
@@ -1319,7 +1363,7 @@ var PTS_PLAYOFFS={
   if(saved)try{var obj=JSON.parse(saved);['qf','sf','final'].forEach(function(f){if(obj[f])Object.assign(PTS_PLAYOFFS[f],obj[f]);});}catch(e){}
 })();// Times classificados por sub-fase dos playoffs
 var PLAYOFF_SURVIVORS={'qf':[],'sf':[],'final':[]};
-var PTS_BY_ROUND={1:{},2:{},3:{},4:{}};
+var PTS_BY_ROUND={1:{},2:{},3:{},4:{},5:{}};
 var _TOTAL_PTS={'YEKINDAR':265,'molodoy':153,'Twistzz':44,'xKacpersky':205,'yuurih':132,'broky':95,'zweih':216,'nitr0':30,'TeSeS':332,'sjuush':66,'Aleksib':187,'frozen':111,'Wicadia':169,'mzinho':270,'nota':150,'tN1R':35,'alex666':12,'ultimate':75,'torzsi':31,'Jimpphat':46,'soulfly':148,'kyxsan':210,'Spinx':52,'cairne':123,'meyern':56,'flameZ':539,'WOXIC':201,'NAF':59,'iM':525,'dgt':96,'MAJ3R':153,'m0NESY':439,'malbsMd':54,'Brollan':-33,'Techno':149,'b1t':206,'r1nkle':210,'sh1ro':137,'w0nderful':274,'EliGE':149,'Moseyuh':166,'esenthial':70,'npl':6,'luchov':150,'siuhy':50,'oSee':70,'Mercury':90,'br0':40,'xiELO':151,'magixx':82,'ZywOo':517,'apEX':241,'bLitz':85,'HUASOPEEK':81,'Snappi':109,'BELCHONOKK':169,'kyousuke':325,'XANTARES':306,'Jee':28,'kensizor':4,'Grim':88,'jcobbb':45,'NiKo':250,'cobrazera':160,'Jame':206,'Sonic':120,'mezii':184,'makazze':492,'JamYoung':112,'karrigan':65,'Zero':50,'s1zzi':-69,'xertioN':18,'KSCERATO':265,'max':20,'FalleN':112,'donk':310,'ropz':267,'910':121,'zont1x':54};
 var _PTS_PLAYOFF={};
 
@@ -1885,56 +1929,264 @@ function renderBlastGroups(){
 
 function renderBlastMatches(){
   var el=document.getElementById('blast-matches-list');if(!el)return;
-  var days=[...new Set(BLAST_MATCHES.map(function(m){return m.day;}))];
-  el.innerHTML=days.map(function(day){
-    var dayM=BLAST_MATCHES.filter(function(m){return m.day===day;});
-    return '<div style="margin-bottom:1.25rem">'+
-      '<div style="font-size:.7rem;font-weight:600;color:var(--dim);letter-spacing:.5px;text-transform:uppercase;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem">'+
-      '<div style="height:1px;width:16px;background:var(--bord)"></div>'+day+'<div style="flex:1;height:1px;background:var(--bord)"></div></div>'+
-      dayM.map(function(m){
-        var idx=BLAST_MATCHES.indexOf(m);
-        var pick=BLAST_PICKS[idx];
-        var myP1=BLAST_SEL.filter(function(p){return p.team===m.t1;});
-        var myP2=BLAST_SEL.filter(function(p){return p.team===m.t2;});
-        return '<div style="background:var(--card);border:1px solid '+(pick?'rgba(232,255,71,.2)':'var(--bord)')+';border-radius:12px;padding:1rem;margin-bottom:.6rem">'+
-          '<div style="display:flex;justify-content:space-between;font-size:.6rem;color:var(--dim);margin-bottom:.75rem">'+
-          '<span>'+m.time+' · Grupo '+m.group+' · '+m.fmt+'</span>'+
-          (pick?'<span style="color:var(--acc)">✓ '+pick+'</span>':'<span>Sem palpite</span>')+
+  var STAGE_LABELS={1:'Rodada 1 · BO1 · 0-0 vs 0-0',2:'Rodada 2 · BO1',3:'Rodada 3 · BO3',4:'Rodada 4 · BO3',5:'Rodada 5 · BO3',6:'Quartas de Final · BO3',7:'Semifinais · BO3',8:'Grande Final · BO5'};
+  var STAGE_COLOR={1:'var(--dim)',2:'var(--dim)',3:'var(--blue)',4:'var(--blue)',5:'var(--blue)',6:'var(--oran)',7:'var(--red)',8:'var(--acc)'};
+  var QUAL_REC=['3-0','3-1','3-2'];
+  var ELIM_REC=['0-3','1-3','2-3'];
+  var rounds=[...new Set(BLAST_MATCHES.map(function(m){return m.rnd;}))];
+  el.innerHTML=rounds.map(function(rnd){
+    var ms=BLAST_MATCHES.filter(function(m){return m.rnd===rnd;});
+    var col=STAGE_COLOR[rnd]||'var(--dim)';
+    var lbl=STAGE_LABELS[rnd]||('Rodada '+rnd);
+    return '<div style="margin-bottom:1.5rem">'+
+      '<div style="font-size:.6rem;font-weight:700;color:'+col+';letter-spacing:2px;text-transform:uppercase;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem">'+
+        '<div style="height:2px;width:16px;background:'+col+';border-radius:1px"></div>'+lbl+
+      '</div>'+
+      ms.map(function(m){
+        var done=m.status==='done';
+        var upcoming=m.status==='upcoming';
+        var rec1=m.rec1||'';var rec2=m.rec2||'';
+        var isQual1=QUAL_REC.indexOf(rec1)>=0;var isQual2=QUAL_REC.indexOf(rec2)>=0;
+        var isElim1=ELIM_REC.indexOf(rec1)>=0;var isElim2=ELIM_REC.indexOf(rec2)>=0;
+        var logo1=typeof TEAM_LOGOS!=='undefined'&&TEAM_LOGOS[m.t1]?'<img src="'+TEAM_LOGOS[m.t1]+'" style="width:18px;height:18px;object-fit:contain;flex-shrink:0">':'<div style="width:18px;height:18px;border-radius:3px;background:rgba(255,255,255,.08);flex-shrink:0"></div>';
+        var logo2=typeof TEAM_LOGOS!=='undefined'&&TEAM_LOGOS[m.t2]?'<img src="'+TEAM_LOGOS[m.t2]+'" style="width:18px;height:18px;object-fit:contain;flex-shrink:0">':'<div style="width:18px;height:18px;border-radius:3px;background:rgba(255,255,255,.08);flex-shrink:0"></div>';
+        var w1=done&&m.sc1!==null&&m.sc1>m.sc2;var w2=done&&m.sc2!==null&&m.sc2>m.sc1;
+        var fmtBadge='<span style="font-size:.52rem;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,.06);color:var(--dim)">'+m.fmt+'</span>';
+        var recBadge1=rec1?'<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:'+(isQual1?'rgba(45,255,143,.12)':isElim1?'rgba(255,77,106,.12)':'rgba(255,255,255,.06)')+';color:'+(isQual1?'var(--grn)':isElim1?'var(--red)':'var(--dim)')+'">'+rec1+'</span>':'';
+        var recBadge2=rec2?'<span style="font-size:.5rem;padding:1px 4px;border-radius:3px;background:'+(isQual2?'rgba(45,255,143,.12)':isElim2?'rgba(255,77,106,.12)':'rgba(255,255,255,.06)')+';color:'+(isQual2?'var(--grn)':isElim2?'var(--red)':'var(--dim)')+'">'+rec2+'</span>':'';
+        return '<div style="display:flex;align-items:center;gap:.5rem;padding:.5rem .65rem;background:var(--card);border:1px solid '+(done?'rgba(255,255,255,.08)':'var(--bord)')+';border-radius:10px;margin-bottom:.35rem">'+
+          fmtBadge+
+          '<div style="flex:1;display:flex;align-items:center;gap:.4rem;justify-content:flex-end">'+
+            recBadge1+
+            '<span style="font-size:.78rem;font-weight:'+(w1?700:400)+';color:'+(w1?'var(--txt)':'var(--dim)')+'">'+m.t1+'</span>'+
+            logo1+
           '</div>'+
-          '<div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.75rem;margin-bottom:.85rem">'+
-          '<div><div style="font-size:.95rem;font-weight:700;display:flex;align-items:center;gap:.4rem">'+(TEAM_LOGOS[m.t1]?'<img src="'+TEAM_LOGOS[m.t1]+'" style="width:22px;height:22px;object-fit:contain">':'')+m.t1+'</div>'+
-          (myP1.length>0?'<div style="display:flex;gap:2px;flex-wrap:wrap">'+myP1.map(function(p){return '<span style="font-size:.55rem;padding:1px 4px;border-radius:3px;background:rgba(232,255,71,.1);color:var(--acc)">'+p.name+'</span>';}).join('')+'</div>':'<div style="font-size:.6rem;color:var(--bord2)">nenhum escalado</div>')+
+          '<div style="min-width:44px;text-align:center;font-family:var(--fm);font-size:'+(done?'.92rem':'.72rem')+';font-weight:'+(done?800:400)+';color:'+(done?'var(--txt)':'var(--dim)')+'">'+
+            (done?(m.sc1+' – '+m.sc2):(upcoming?m.time:'–'))+
           '</div>'+
-          '<div style="text-align:center"><div style="font-size:.72rem;color:var(--dim);font-family:var(--fm)">VS</div><div style="font-size:.6rem;color:var(--dim)">'+m.time+'</div></div>'+
-          '<div style="text-align:right"><div style="font-size:.95rem;font-weight:700;display:flex;align-items:center;justify-content:flex-end;gap:.4rem">'+m.t2+(TEAM_LOGOS[m.t2]?'<img src="'+TEAM_LOGOS[m.t2]+'" style="width:22px;height:22px;object-fit:contain">':'')+'</div>'+
-          (myP2.length>0?'<div style="display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end">'+myP2.map(function(p){return '<span style="font-size:.55rem;padding:1px 4px;border-radius:3px;background:rgba(232,255,71,.1);color:var(--acc)">'+p.name+'</span>';}).join('')+'</div>':'<div style="font-size:.6rem;color:var(--bord2)">nenhum escalado</div>')+
-          '</div></div>'+
-          '<div style="margin-bottom:.65rem">'+
-          '<div style="display:flex;justify-content:space-between;font-size:.65rem;font-family:var(--fm);margin-bottom:.3rem">'+
-          '<span style="color:'+(m.prob1>=50?'var(--grn)':'var(--dim)')+'">'+m.prob1+'%</span>'+
-          '<span style="font-size:.58rem;color:var(--dim)">probabilidade</span>'+
-          '<span style="color:'+(m.prob2>=50?'var(--grn)':'var(--dim)')+'">'+m.prob2+'%</span></div>'+
-          '<div style="height:6px;background:var(--surf);border-radius:3px;overflow:hidden;display:flex">'+
-          '<div style="height:100%;width:'+m.prob1+'%;background:'+(m.prob1>=50?'var(--grn)':'var(--red)')+';border-radius:3px 0 0 3px"></div>'+
-          '<div style="height:100%;width:'+m.prob2+'%;background:'+(m.prob2>=50?'var(--blue)':'var(--dim)')+';border-radius:0 3px 3px 0"></div>'+
-          '</div></div>'+
-          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">'+
-          '<button onclick="savePick('+idx+',\''+m.t1+'\')" style="padding:.42rem;border-radius:7px;border:1px solid '+(pick===m.t1?'var(--acc)':'var(--bord)')+';background:'+(pick===m.t1?'rgba(232,255,71,.1)':'transparent')+';color:'+(pick===m.t1?'var(--acc)':'var(--dim)')+';font-size:.75rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.35rem">'+(TEAM_LOGOS[m.t1]?'<img src="'+TEAM_LOGOS[m.t1]+'" style="width:16px;height:16px;object-fit:contain">':'')+(pick===m.t1?'✓ ':'')+m.t1+'</button>'+
-          '<button onclick="savePick('+idx+',\''+m.t2+'\')" style="padding:.42rem;border-radius:7px;border:1px solid '+(pick===m.t2?'var(--acc)':'var(--bord)')+';background:'+(pick===m.t2?'rgba(232,255,71,.1)':'transparent')+';color:'+(pick===m.t2?'var(--acc)':'var(--dim)')+';font-size:.75rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.35rem">'+(TEAM_LOGOS[m.t2]?'<img src="'+TEAM_LOGOS[m.t2]+'" style="width:16px;height:16px;object-fit:contain">':'')+(pick===m.t2?'✓ ':'')+m.t2+'</button>'+
-          '</div></div>';
-      }).join('')+'</div>';
+          '<div style="flex:1;display:flex;align-items:center;gap:.4rem">'+
+            logo2+
+            '<span style="font-size:.78rem;font-weight:'+(w2?700:400)+';color:'+(w2?'var(--txt)':'var(--dim)')+'">'+m.t2+'</span>'+
+            recBadge2+
+          '</div>'+
+          (m.stage?'<span style="font-size:.5rem;color:var(--dim);text-align:right;min-width:50px">'+m.stage+'</span>':'')+
+        '</div>';
+      }).join('')+
+    '</div>';
   }).join('');
 }
+function renderBlastBracket(){
+  var el=document.getElementById('blast-bracket-view');if(!el)return;
 
-function renderBlastBracket() {
-  var el = document.getElementById('blast-bracket-view');
-  if (!el) return;
-  el.innerHTML =
-    '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 1rem;gap:1rem;text-align:center">' +
-      '<div style="font-size:2rem">🏆</div>' +
-      '<div style="font-size:.9rem;font-weight:700;color:var(--txt)">Chaveamento em breve</div>' +
-      '<div style="font-size:.72rem;color:var(--dim);max-width:280px">O bracket do PGL Bucharest 2026 será disponibilizado assim que o torneio começar.</div>' +
-    '</div>';
+  function lg(name,sz){
+    sz=sz||22;
+    var u=typeof TEAM_LOGOS!=='undefined'&&TEAM_LOGOS[name]?TEAM_LOGOS[name]:'';
+    return u
+      ?'<img src="'+u+'" style="width:'+sz+'px;height:'+sz+'px;object-fit:contain;border-radius:3px;flex-shrink:0">'
+      :'<div style="width:'+sz+'px;height:'+sz+'px;border-radius:50%;background:rgba(255,255,255,.12);flex-shrink:0;display:flex;align-items:center;justify-content:center"><span style="font-size:'+(sz*0.35)+'px;color:rgba(255,255,255,.4)">?</span></div>';
+  }
+
+  // Card estilo HLTV: logo VS logo em linha horizontal
+  function vsCard(m,highlight){
+    var tbd=!m||m.t1==='TBD';
+    var done=m&&m.status==='done';
+    var w1=done&&m.sc1!=null&&m.sc1>m.sc2;
+    var w2=done&&m.sc2!=null&&m.sc2>m.sc1;
+    var t1=tbd?'TBD':(m&&m.t1||'TBD');
+    var t2=tbd?'TBD':(m&&m.t2||'TBD');
+    var bg=highlight==='green'?'rgba(30,90,30,.5)':highlight==='red'?'rgba(90,20,20,.5)':'rgba(255,255,255,.04)';
+    var bord=highlight==='green'?'rgba(45,255,143,.2)':highlight==='red'?'rgba(255,77,106,.2)':'rgba(255,255,255,.1)';
+    var scoreHTML=done
+      ?'<span style="font-family:var(--fm);font-size:.65rem;font-weight:800;color:var(--txt);padding:0 4px">'+m.sc1+'–'+m.sc2+'</span>'
+      :'<span style="font-size:.55rem;color:var(--dim);padding:0 3px">vs</span>';
+    return '<div style="display:flex;align-items:center;gap:4px;padding:5px 7px;border:1px solid '+bord+';border-radius:7px;background:'+bg+';white-space:nowrap">'
+      +'<div style="display:flex;flex-direction:column;align-items:center;gap:2px;min-width:30px">'
+        +lg(t1,22)
+        +(t1!=='TBD'?'<span style="font-size:.42rem;color:'+(w1?'var(--grn)':done?'rgba(255,255,255,.3)':'var(--dim)')+';max-width:38px;overflow:hidden;text-overflow:ellipsis;text-align:center">'+t1+'</span>':'')
+      +'</div>'
+      +scoreHTML
+      +'<div style="display:flex;flex-direction:column;align-items:center;gap:2px;min-width:30px">'
+        +lg(t2,22)
+        +(t2!=='TBD'?'<span style="font-size:.42rem;color:'+(w2?'var(--grn)':done?'rgba(255,255,255,.3)':'var(--dim)')+';max-width:38px;overflow:hidden;text-overflow:ellipsis;text-align:center">'+t2+'</span>':'')
+      +'</div>'
+    +'</div>';
+  }
+
+  // placeholder vazio (times ainda não definidos)
+  function phCard(){return vsCard(null,'');}
+
+  // coluna de partidas com título
+  function col(title,items,titleColor){
+    titleColor=titleColor||'rgba(255,255,255,.35)';
+    return '<div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0">'
+      +'<div style="font-size:.55rem;font-weight:700;color:'+titleColor+';letter-spacing:1.5px;text-transform:uppercase;text-align:center;margin-bottom:2px">'+title+'</div>'
+      +items.join('<div style="height:3px"></div>')
+    +'</div>';
+  }
+
+  // zona classificados / eliminados estilo HLTV
+  function zone(scores,sublabel,color,rgb,items){
+    var header='<div style="display:flex;justify-content:space-around;margin-bottom:4px">'
+      +scores.map(function(s){return '<span style="font-size:.65rem;font-weight:800;color:'+color+'">'+s+'</span>';}).join('')
+    +'</div>';
+    return '<div style="border:1px solid rgba('+rgb+',.35);border-radius:8px;background:rgba('+rgb+',.15);padding:7px 6px">'
+      +header
+      +'<div style="display:flex;flex-wrap:wrap;gap:4px;justify-content:center">'
+        +items.join('')
+      +'</div>'
+      +'<div style="font-size:.48rem;color:rgba('+rgb+',.7);text-align:center;margin-top:4px;letter-spacing:1px;text-transform:uppercase">'+sublabel+'</div>'
+    +'</div>';
+  }
+
+  // seta
+  var ARR='<div style="display:flex;align-items:center;padding:0 4px;padding-top:26px;color:rgba(45,255,143,.5);font-size:13px;flex-shrink:0">››</div>';
+  var ARR2='<div style="display:flex;align-items:center;padding:0 4px;padding-top:26px;color:rgba(255,77,106,.5);font-size:13px;flex-shrink:0">››</div>';
+  var ARRN='<div style="display:flex;align-items:center;padding:0 4px;padding-top:26px;color:rgba(255,255,255,.2);font-size:13px;flex-shrink:0">›</div>';
+
+  // pegar partidas por recorde
+  function byRec(r1,r2){
+    return BLAST_MATCHES.filter(function(m){return m.rec1===r1&&m.rec2===r2&&m.rnd<=5;});
+  }
+  var m00=byRec('0-0','0-0');
+  var m10=byRec('1-0','1-0'); var m01=byRec('0-1','0-1');
+  var m20=byRec('2-0','2-0'); var m11=byRec('1-1','1-1'); var m02=byRec('0-2','0-2');
+  var m21=byRec('2-1','2-1'); var m12=byRec('1-2','1-2');
+  var m22=byRec('2-2','2-2');
+  var QF=BLAST_MATCHES.filter(function(m){return m.playoff_fase==='qf';});
+  var SF=BLAST_MATCHES.filter(function(m){return m.playoff_fase==='sf';});
+  var FN=BLAST_MATCHES.filter(function(m){return m.playoff_fase==='final';});
+
+  // preencher com placeholders se vazio
+  function fill(arr,n){while(arr.length<n)arr.push(null);return arr;}
+  m00=fill(m00,8); m10=fill(m10,4); m01=fill(m01,4);
+  m20=fill(m20,2); m11=fill(m11,4); m02=fill(m02,2);
+  m21=fill(m21,4); m12=fill(m12,4);
+  m22=fill(m22,4);
+  fill(QF,4); fill(SF,2);
+
+  // ── SWISS BOARD ───────────────────────────────────────────────────────────
+  var zoneGreen30=zone(['3:0'],  'Classificados',   'var(--grn)', '45,255,143',
+    [phCard(),phCard()]);
+  var zoneGreen31=zone(['3:1'],  'Classificados',   'var(--grn)', '45,255,143',
+    [phCard(),phCard(),phCard(),phCard()]);
+  var zoneGreen32=zone(['3:2'],  'Classificados',   'var(--grn)', '45,255,143',
+    [phCard(),phCard(),phCard(),phCard()]);
+  var zoneRed03=zone(['0:3'],   'Eliminados',      'var(--red)', '255,77,106',
+    [phCard(),phCard()]);
+  var zoneRed13=zone(['1:3'],   'Eliminados',      'var(--red)', '255,77,106',
+    [phCard(),phCard(),phCard(),phCard()]);
+  var zoneRed23=zone(['2:3'],   'Eliminados',      'var(--red)', '255,77,106',
+    [phCard(),phCard(),phCard(),phCard()]);
+
+  var swiss=
+    '<div style="font-size:.52rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px">Group Play · Swiss System</div>'
+    +'<div style="display:flex;gap:0;align-items:flex-start;overflow-x:auto;padding-bottom:8px">'
+
+      // COL 0:0
+      +col('0:0', m00.map(function(m){return vsCard(m,'');}))
+      +ARRN
+
+      // COL 1:0 + 0:1
+      +'<div style="display:flex;flex-direction:column;gap:4px">'
+        +col('1:0', m10.map(function(m){return vsCard(m,'');}))
+        +'<div style="height:8px"></div>'
+        +col('0:1', m01.map(function(m){return vsCard(m,'');}))
+      +'</div>'
+      +ARRN
+
+      // COL 2:0 + 1:1 + 0:2
+      +'<div style="display:flex;flex-direction:column;gap:4px">'
+        +col('2:0', m20.map(function(m){return vsCard(m,'');}))
+        +'<div style="height:6px"></div>'
+        +col('1:1', m11.map(function(m){return vsCard(m,'');}))
+        +'<div style="height:6px"></div>'
+        +col('0:2', m02.map(function(m){return vsCard(m,'');}))
+      +'</div>'
+      +ARR
+
+      // COL 3:0 zona verde + 2:1 + 1:2 + 0:3 zona vermelha
+      +'<div style="display:flex;flex-direction:column;gap:5px">'
+        +zoneGreen30
+        +'<div style="height:4px"></div>'
+        +col('2:1', m21.map(function(m){return vsCard(m,'');}))
+        +'<div style="height:4px"></div>'
+        +col('1:2', m12.map(function(m){return vsCard(m,'');}))
+        +'<div style="height:4px"></div>'
+        +zoneRed03
+      +'</div>'
+      +ARR
+
+      // COL 3:1 zona verde + 2:2 + 1:3 zona vermelha
+      +'<div style="display:flex;flex-direction:column;gap:5px">'
+        +zoneGreen31
+        +'<div style="height:4px"></div>'
+        +col('2:2', m22.map(function(m){return vsCard(m,'');}))
+        +'<div style="height:4px"></div>'
+        +zoneRed13
+      +'</div>'
+      +ARR
+
+      // COL 3:2 zona verde + 2:3 zona vermelha
+      +'<div style="display:flex;flex-direction:column;gap:5px">'
+        +zoneGreen32
+        +'<div style="height:20px"></div>'
+        +zoneRed23
+      +'</div>'
+
+    +'</div>';
+
+  // ── PLAYOFFS ──────────────────────────────────────────────────────────────
+  var FNm=FN[0]||null;
+  var fnDone=FNm&&FNm.status==='done';
+  var fnW1=fnDone&&FNm.sc1>FNm.sc2;
+  var champ=fnDone?(fnW1?FNm.t1:FNm.t2):'';
+
+  var playoffs=
+    '<div style="margin-top:20px">'
+    +'<div style="font-size:.52rem;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px">Brackets · Playoffs</div>'
+    +'<div style="display:flex;gap:0;align-items:flex-start;overflow-x:auto;padding-bottom:8px">'
+
+      // QF
+      +'<div style="flex-shrink:0">'
+        +'<div style="font-size:.52rem;font-weight:700;color:var(--oran);letter-spacing:1.5px;text-transform:uppercase;text-align:center;margin-bottom:5px">Quartas · BO3</div>'
+        +'<div style="display:flex;flex-direction:column;gap:4px">'
+          +QF.map(function(m){return vsCard(m,'');}).join('')
+        +'</div>'
+      +'</div>'
+      +ARRN
+
+      // SF
+      +'<div style="flex-shrink:0">'
+        +'<div style="font-size:.52rem;font-weight:700;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;text-align:center;margin-bottom:5px">Semis · BO3</div>'
+        +'<div style="display:flex;flex-direction:column;gap:16px">'
+          +SF.map(function(m){return vsCard(m,'');}).join('')
+        +'</div>'
+      +'</div>'
+      +ARRN
+
+      // Final
+      +'<div style="flex-shrink:0">'
+        +'<div style="font-size:.52rem;font-weight:700;color:var(--acc);letter-spacing:1.5px;text-transform:uppercase;text-align:center;margin-bottom:5px">Final · BO5</div>'
+        +vsCard(FNm,'')
+      +'</div>'
+      +ARRN
+
+      // Troféu / campeão
+      +(champ
+        ?'<div style="text-align:center;padding:8px 12px;background:rgba(232,255,71,.06);border:1px solid rgba(232,255,71,.2);border-radius:10px;flex-shrink:0">'
+          +'<div style="font-size:.45rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px">Campeão</div>'
+          +lg(champ,36)
+          +'<div style="font-size:.65rem;font-weight:800;color:var(--acc);margin-top:3px;white-space:nowrap">'+champ+'</div>'
+        +'</div>'
+        :'<div style="text-align:center;padding:8px 12px;background:rgba(232,255,71,.03);border:1px dashed rgba(232,255,71,.12);border-radius:10px;flex-shrink:0;min-width:70px">'
+          +'<div style="font-size:1.2rem">🏆</div>'
+          +'<div style="font-size:.55rem;color:var(--dim);margin-top:2px">A definir</div>'
+        +'</div>'
+      )
+
+    +'</div></div>';
+
+  el.innerHTML=swiss+playoffs;
 }
 function lTab(id,el){
   document.querySelectorAll('#page-ligas .ptab').forEach(function(t){t.classList.remove('act');});
@@ -3646,7 +3898,7 @@ function renderAll(){
   updateCountdown();
 }
 
-var PLAYER_STATS_DB={'r1':{},'r2':{},'r3':{},'r4':{},'qf':{},'sf':{},'final':{}};
+var PLAYER_STATS_DB={'r1':{},'r2':{},'r3':{},'r4':{},'r5':{},'qf':{},'sf':{},'final':{}};
 // ── INIT ──
 loadAll();
 // Inicializar rodada 2 — popular original_sel se ainda vazio
