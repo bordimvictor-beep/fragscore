@@ -371,6 +371,19 @@ function go(id,el){if(window._goImpl){window._goImpl(id,el);}else{window._goPend
           </div>
         </div>
         <div id="cd-event-label" style="margin-top:.75rem;font-size:.68rem;color:var(--dim)">carregando...</div>
+
+        <!-- MARKET STATUS WIDGET -->
+        <div id="hero-market" style="margin-top:.65rem;width:100%;max-width:320px;margin-left:auto;margin-right:auto">
+          <div id="hero-market-inner" style="display:flex;align-items:center;justify-content:space-between;padding:.38rem .75rem;border-radius:8px;border:1px solid rgba(45,255,143,.2);background:rgba(45,255,143,.05)">
+            <div style="display:flex;align-items:center;gap:.45rem">
+              <div id="hero-market-dot" style="width:7px;height:7px;border-radius:50%;background:var(--grn);animation:blink .9s infinite;flex-shrink:0"></div>
+              <span id="hero-market-label" style="font-size:.68rem;font-weight:700;font-family:var(--fm);color:var(--grn);letter-spacing:.5px">MERCADO ABERTO</span>
+            </div>
+            <span id="hero-market-countdown" style="font-size:.62rem;font-weight:600;font-family:var(--fm);color:var(--dim)"></span>
+          </div>
+          <div id="hero-market-msg" style="display:none"></div>
+        </div>
+
         <!-- Lives -->
         <div style="margin-top:.85rem;display:flex;flex-direction:column;gap:.3rem;width:100%;max-width:320px;margin-left:auto;margin-right:auto">
           <div style="font-size:.58rem;font-family:var(--fm);color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:.1rem">🎧 Principais transmissões</div>
@@ -721,7 +734,7 @@ var BLAST_CAP=localStorage.getItem('iem_blast_cap')||null;
 
 // ── SISTEMA DE RODADAS ──
 var _savedRound = parseInt(localStorage.getItem('iem_blast_round')||'1');
-if(_savedRound < 1) _savedRound = 1; if(_savedRound > 3) _savedRound = 3;
+if(_savedRound < 1) _savedRound = 1; if(_savedRound > 3) _savedRound = 3; // R1-R3 grupo
 var BLAST_ROUND = _savedRound;
 var BLAST_FASE = localStorage.getItem('iem_blast_fase') || 'grupos';
 var BLAST_PLAYOFF_FASE = localStorage.getItem('iem_blast_playoff_fase') || 'qf';
@@ -733,8 +746,8 @@ var BLAST_PLAYOFF_FASE = localStorage.getItem('iem_blast_playoff_fase') || 'qf';
 const BLAST_ELIMINATED = {};
 function isEliminated(t){ return BLAST_ELIMINATED.hasOwnProperty(t); }
 var BLAST_MAX_TRANSFERS = (BLAST_FASE==='playoffs')
-  ? ({'qf':3,'sf':2,'final':2}[BLAST_PLAYOFF_FASE]||2)
-  : 3;
+  ? 999 // playoffs = trocas livres por rodada
+  : ({1:999,2:3,3:3}[BLAST_ROUND]||3); // R1=livre R2=3 R3=3
 var BLAST_TRANSFERS_USED = parseInt(localStorage.getItem('iem_blast_transfers_used') || '0');
 var BLAST_ORIGINAL_SEL = JSON.parse(localStorage.getItem('iem_blast_original_sel') || '[]');
 var MARKET_FORCE_CLOSED = localStorage.getItem('iem_market_closed') === '1';
@@ -953,11 +966,19 @@ const TEAM_LOGOS={
   'Falcons':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Falcons.jpg',
   'Spirit':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Spirit.jpg',
   'G2':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/G2.jpg',
+  'Gentle Mates':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Gentle%20Mates.jpg',
+  'RED Canids':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Red%20Canids.jpg',
+  'Passion UA':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Passion%20UA.jpg',
+  'HOTU':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/HOTU.jpg',
   'Liquid':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Liquid.jpg',
   'NaVi':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Navi.jpg',
   'MOUZ':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/MOUZ.jpg',
   'FURIA':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Furia.jpg',
   'Aurora':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Aurora.jpg',
+  'Gentle Mates':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Gentle%20Mates.jpg',
+  'RED Canids':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Red%20Canids.jpg',
+  'Passion UA':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Passion%20UA.jpg',
+  'HOTU':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/HOTU.jpg',
   'Gentle Mates':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Gentle%20Mates.jpg',
   'RED Canids':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Red%20Canids.jpg',
   'Passion UA':'https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/Passion%20UA.jpg',
@@ -1367,7 +1388,7 @@ var PTS_PLAYOFFS={
   if(saved)try{var obj=JSON.parse(saved);['qf','sf','final'].forEach(function(f){if(obj[f])Object.assign(PTS_PLAYOFFS[f],obj[f]);});}catch(e){}
 })();// Times classificados por sub-fase dos playoffs
 var PLAYOFF_SURVIVORS={'qf':[],'sf':[],'final':[]};
-var PTS_BY_ROUND={1:{},2:{},3:{}};
+var PTS_BY_ROUND={1:{},2:{},3:{}}; // R1=OR R2=UBSemi+LBR1 R3=UBFinal+LBSemi+LBFinal
 var _TOTAL_PTS={'YEKINDAR':265,'molodoy':153,'Twistzz':44,'xKacpersky':205,'yuurih':132,'broky':95,'zweih':216,'nitr0':30,'TeSeS':332,'sjuush':66,'Aleksib':187,'frozen':111,'Wicadia':169,'mzinho':270,'nota':150,'tN1R':35,'alex666':12,'ultimate':75,'torzsi':31,'Jimpphat':46,'soulfly':148,'kyxsan':210,'Spinx':52,'cairne':123,'meyern':56,'flameZ':539,'WOXIC':201,'NAF':59,'iM':525,'dgt':96,'MAJ3R':153,'m0NESY':439,'malbsMd':54,'Brollan':-33,'Techno':149,'b1t':206,'r1nkle':210,'sh1ro':137,'w0nderful':274,'EliGE':149,'Moseyuh':166,'esenthial':70,'npl':6,'luchov':150,'siuhy':50,'oSee':70,'Mercury':90,'br0':40,'xiELO':151,'magixx':82,'ZywOo':517,'apEX':241,'bLitz':85,'HUASOPEEK':81,'Snappi':109,'BELCHONOKK':169,'kyousuke':325,'XANTARES':306,'Jee':28,'kensizor':4,'Grim':88,'jcobbb':45,'NiKo':250,'cobrazera':160,'Jame':206,'Sonic':120,'mezii':184,'makazze':492,'JamYoung':112,'karrigan':65,'Zero':50,'s1zzi':-69,'xertioN':18,'KSCERATO':265,'max':20,'FalleN':112,'donk':310,'ropz':267,'910':121,'zont1x':54};
 var _PTS_PLAYOFF={};
 
@@ -1647,10 +1668,73 @@ function renderHomeRank(){
 
 function renderHomeMatches(){
   var el=document.getElementById('home-matches');if(!el)return;
-  el.innerHTML='<div style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.75rem">'+
-    '<div style="font-size:1.5rem;margin-bottom:.5rem">📅</div>'+
-    'Nenhuma partida hoje<br><span style="font-size:.65rem">As partidas serão exibidas quando o torneio começar em 4 Abr</span>'+
-  '</div>';
+  var now=new Date();
+  var logoBase='https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/';
+
+  // Filtrar partidas do dia atual
+  var todayMatches=BLAST_MATCHES.filter(function(m){
+    if(!m.day) return false;
+    var today=now.toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'});
+    // Verificar se o dia da partida é hoje ou amanhã (dia seguinte)
+    var mDate=m.day; // ex: "Seg 13/04"
+    // Extrair dd/mm do dia da partida
+    var parts=mDate.match(/(\d{2})\/(\d{2})/);
+    if(!parts) return false;
+    var pDay=parseInt(parts[1]),pMon=parseInt(parts[2])-1;
+    var matchDate=new Date(2026,pMon,pDay);
+    var diffDays=Math.floor((matchDate-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/86400000);
+    return diffDays===0 || diffDays===1; // hoje ou amanhã
+  });
+
+  if(todayMatches.length===0){
+    // Verificar se tem partidas nos próximos dias
+    var nextMatches=BLAST_MATCHES.filter(function(m){
+      if(!m.day||m.status==='done') return false;
+      var parts=m.day.match(/(\d{2})\/(\d{2})/);
+      if(!parts) return false;
+      var matchDate=new Date(2026,parseInt(parts[2])-1,parseInt(parts[1]));
+      return matchDate>=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    }).slice(0,4);
+    if(nextMatches.length===0){
+      el.innerHTML='<div style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.75rem"><div style="font-size:1.5rem;margin-bottom:.5rem">📅</div>Nenhuma partida agendada</div>';
+      return;
+    }
+    todayMatches=nextMatches;
+  }
+
+  function teamLogoHtml(name,side){
+    var align=side==='left'?'margin-right:5px':'margin-left:5px';
+    var src=TEAM_LOGOS[name]||'';
+    if(!src) return '<div style="width:20px;height:20px;border-radius:4px;background:rgba(255,255,255,.08);flex-shrink:0;'+align+'"></div>';
+    return '<img src="'+src+'" style="width:20px;height:20px;border-radius:4px;object-fit:contain;flex-shrink:0;'+align+'">';
+  }  el.innerHTML=todayMatches.map(function(m){
+    var isDone=m.status==='done';
+    var isLive=m.status==='live';
+    var t1col=isDone&&m.winner===m.t1?'var(--grn)':'var(--txt)';
+    var t2col=isDone&&m.winner===m.t2?'var(--grn)':'var(--txt)';
+    var scoreHtml=isDone
+      ? '<span style="font-family:var(--fm);font-size:.82rem;font-weight:700;color:var(--acc)">'+m.sc1+' — '+m.sc2+'</span>'
+      : isLive
+        ? '<span style="font-size:.6rem;font-weight:700;color:var(--grn);animation:blink .9s infinite">AO VIVO</span>'
+        : '<span style="font-family:var(--fm);font-size:.7rem;color:var(--dim)">'+m.time+'</span>';
+    var stageBg=isDone?'rgba(107,117,133,.12)':isLive?'rgba(45,255,143,.08)':'rgba(77,159,255,.06)';
+    var stageBord=isDone?'rgba(107,117,133,.2)':isLive?'rgba(45,255,143,.2)':'rgba(77,159,255,.15)';
+    var stageCol=isDone?'var(--dim)':isLive?'var(--grn)':'var(--blue)';
+    return '<div style="display:flex;align-items:center;gap:.5rem;padding:.5rem .7rem;border-bottom:1px solid var(--bord2)">'+
+      '<div style="display:flex;align-items:center;justify-content:flex-end;flex:1;min-width:0">'+
+        '<span style="font-size:.75rem;font-weight:700;color:'+t1col+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+m.t1+'</span>'+
+        teamLogoHtml(m.t1,'right')+
+      '</div>'+
+      '<div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex-shrink:0;min-width:60px">'+
+        scoreHtml+
+        '<span style="font-size:.5rem;padding:1px 5px;border-radius:3px;background:'+stageBg+';color:'+stageCol+';border:1px solid '+stageBord+';white-space:nowrap">'+m.stage+'</span>'+
+      '</div>'+
+      '<div style="display:flex;align-items:center;flex:1;min-width:0">'+
+        teamLogoHtml(m.t2,'left')+
+        '<span style="font-size:.75rem;font-weight:700;color:'+t2col+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+m.t2+'</span>'+
+      '</div>'+
+    '</div>';
+  }).join('');
 }
 function renderHighlights(){
   var el=document.getElementById('home-highlights');if(!el)return;
@@ -1933,8 +2017,8 @@ function renderBlastGroups(){
 
 function renderBlastMatches(){
   var el=document.getElementById('blast-matches-list');if(!el)return;
-  var STAGE_LABELS={1:'Rodada 1 · BO1 · 0-0 vs 0-0',2:'Rodada 2 · BO1',3:'Rodada 3 · BO3',4:'Rodada 4 · BO3',5:'Rodada 5 · BO3',6:'Quartas de Final · BO3',7:'Semifinais · BO3',8:'Grande Final · BO5'};
-  var STAGE_COLOR={1:'var(--dim)',2:'var(--dim)',3:'var(--blue)',4:'var(--blue)',5:'var(--blue)',6:'var(--oran)',7:'var(--red)',8:'var(--acc)'};
+  var STAGE_LABELS={1:'R1 · Opening Round · 13/04',2:'R2 · UB Semi + LB R1 · 14/04',3:'R3 · UB Final + LB Semi + LB Final · 15/04',4:'R4 · Quartas de Final · 17/04',5:'R5 · Semifinais · 18/04',6:'R6 · Grande Final BO5 · 19/04'};
+  var STAGE_COLOR={1:'var(--dim)',2:'var(--blue)',3:'var(--blue)',4:'var(--oran)',5:'var(--red)',6:'var(--acc)'};
   var QUAL_REC=['3-0','3-1','3-2'];
   var ELIM_REC=['0-3','1-3','2-3'];
   var rounds=[...new Set(BLAST_MATCHES.map(function(m){return m.rnd;}))];
@@ -3545,7 +3629,7 @@ function openCampeonato(id){
     '<div style="text-align:center;padding:.5rem .85rem;background:rgba(232,255,71,.05);border:1px solid rgba(232,255,71,.15);border-radius:8px"><div style="font-size:1.1rem;font-weight:700;font-family:var(--fm);color:var(--acc)">F$'+cost.toFixed(1)+'</div><div style="font-size:.58rem;color:var(--dim)">gasto</div></div>'+
     '<div style="text-align:center;padding:.5rem .85rem;background:rgba(45,255,143,.05);border:1px solid rgba(45,255,143,.15);border-radius:8px">'+
     '<div style="font-size:1.1rem;font-weight:700;font-family:var(--fm);color:var(--grn)">'+blastTotalPts()+'</div>'+
-    '<div style="font-size:.5rem;color:var(--dim)">'+(BLAST_FASE==='playoffs'?({'qf':'Quartas','sf':'Semifinal','final':'Final'}[BLAST_PLAYOFF_FASE]||'Playoffs'):'liga · R'+BLAST_ROUND)+'</div>'+
+    '<div style="font-size:.5rem;color:var(--dim)">'+(BLAST_FASE==='playoffs'?({'qf':'Quartas','sf':'Semifinal','final':'Final'}[BLAST_PLAYOFF_FASE]||'Playoffs'):(BLAST_FASE==='playoffs'?'liga · '+{'qf':'R4','sf':'R5','final':'R6'}[BLAST_PLAYOFF_FASE]:'liga · R'+BLAST_ROUND))+'</div>'+
     '</div>'+
     '</div></div>';
   left.appendChild(banner);
@@ -3601,7 +3685,7 @@ function openCampeonato(id){
   budgetCard.innerHTML=
     '<div style="padding:.65rem .85rem .5rem;border-bottom:1px solid var(--bord)">'+
       '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">'+
-        '<span style="font-size:.58rem;font-family:var(--fm);color:var(--dim);letter-spacing:1.5px;text-transform:uppercase">Saldo · R'+BLAST_ROUND+'</span>'+
+        '<span style="font-size:.58rem;font-family:var(--fm);color:var(--dim);letter-spacing:1.5px;text-transform:uppercase">'+(BLAST_FASE==="playoffs"?"Saldo · "+{"qf":"R4","sf":"R5","final":"R6"}[BLAST_PLAYOFF_FASE]:"Saldo · R"+BLAST_ROUND)+'</span>'+
         '<span style="font-size:.6rem;font-family:var(--fm);color:'+(parseFloat(rem)<=0?'var(--red)':parseFloat(rem)<15?'var(--oran)':'var(--dim)')+'">F$ '+rem+' restante</span>'+
       '</div>'+
       '<div style="background:rgba(255,255,255,.06);height:5px;border-radius:3px;overflow:hidden">'+
@@ -3742,7 +3826,31 @@ function updateCountdown(){
   var now=new Date();var diff=target-now;
   function pad(n){return String(n).padStart(2,'0');}
   var lbl=document.getElementById('cd-event-label');
-  if(lbl)lbl.textContent='para '+ev.name+' · '+ev.label;
+  if(lbl){
+    // Tentar extrair os dois times do nome do evento (formato "Time1 vs Time2 · fase")
+    var vsMatch=ev.name.match(/^(.+?) vs (.+?) ·/);
+    if(vsMatch){
+      var t1=vsMatch[1].trim(), t2=vsMatch[2].trim();
+      var logoBase='https://raw.githubusercontent.com/bordimvictor-beep/fragscore/main/img/players/FURIA/';
+      function teamLogo(name){
+        var src=TEAM_LOGOS[name]||'';
+        if(!src) return '';
+        return '<img src="'+src+'" style="width:18px;height:18px;border-radius:3px;object-fit:contain;vertical-align:middle;margin:0 3px">';
+      }      lbl.innerHTML=
+        '<div style="display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap">'+
+          '<span style="display:inline-flex;align-items:center;gap:4px;font-weight:700;color:var(--txt);font-size:.72rem">'+
+            teamLogo(t1)+t1+
+          '</span>'+
+          '<span style="font-size:.6rem;color:var(--dim);font-family:var(--fm);padding:1px 6px;border:1px solid var(--bord);border-radius:4px">VS</span>'+
+          '<span style="display:inline-flex;align-items:center;gap:4px;font-weight:700;color:var(--txt);font-size:.72rem">'+
+            t2+teamLogo(t2)+
+          '</span>'+
+        '</div>'+
+        '<div style="font-size:.6rem;color:var(--dim);margin-top:3px;text-align:center">'+ev.label+'</div>';
+    } else {
+      lbl.innerHTML='<div style="font-size:.68rem;color:var(--dim);text-align:center">'+ev.name+'<br><span style="font-size:.6rem">'+ev.label+'</span></div>';
+    }
+  }
   var days,hours,mins,secs;
   if(diff<=0){
     days=hours=mins=secs='00';
@@ -3976,6 +4084,11 @@ if(BLAST_CAP){
 if(!S.user){S.user={nick:'RODRIGO',email:'',teamName:'RODRIGO',joined:'2026-03-18T00:00:00.000Z'};saveAll();}
 ensureLigaPadrao();updNav();renderAll();
 setInterval(function(){var e=document.getElementById('kp-online');if(e)e.textContent=7+Math.floor(Math.random()*9);},9000);
+
+// ── MARKET AUTO-TIMER — atualiza badge a cada segundo ──
+setInterval(function(){
+  renderMarketStatus();
+}, 1000);
 
 // Iniciar countdown
 var _cdInterval=null;
@@ -5163,9 +5276,52 @@ function getTransfersLeft(){
   return Math.max(0, BLAST_MAX_TRANSFERS - BLAST_TRANSFERS_USED - pendentes);
 }
 
+// ── JANELAS DE MERCADO — fechado 30min antes, abre 30min após rodada ──
+var MARKET_WINDOWS = [
+  // {close: DateTime BRT inicio-30min, open: DateTime BRT fim+30min, rnd: N, label}
+  // R1 — OR · Seg 13/04 10:00 BRT / fecha 09:30 / abre 19:30 (última partida ~17:30+BO3~90min)
+  {close:'2026-04-13T09:30:00-03:00', open:'2026-04-13T19:30:00-03:00', rnd:1, label:'R1 · Opening Round'},
+  // R2 — UB Semi + LB R1 · Ter 14/04 10:00 BRT / fecha 09:30 / abre 20:00
+  {close:'2026-04-14T09:30:00-03:00', open:'2026-04-14T20:00:00-03:00', rnd:2, label:'R2 · UB Semi + LB R1'},
+  // R3 — UB Final + LB Semi + LB Final · Qua 15/04 10:00 BRT / fecha 09:30 / abre 20:30
+  {close:'2026-04-15T09:30:00-03:00', open:'2026-04-15T20:30:00-03:00', rnd:3, label:'R3 · UB Final + LB'},
+  // R4 — QF Playoffs · Qui 17/04 15:00 BRT / fecha 14:30 / abre 22:30
+  {close:'2026-04-17T14:30:00-03:00', open:'2026-04-17T22:30:00-03:00', rnd:4, label:'R4 · Quartas de Final'},
+  // R5 — SF Playoffs · Sex 18/04 15:00 BRT / fecha 14:30 / abre 22:30
+  {close:'2026-04-18T14:30:00-03:00', open:'2026-04-18T22:30:00-03:00', rnd:5, label:'R5 · Semifinais'},
+  // R6 — Grande Final · Sab 19/04 17:00 BRT / fecha 16:30 / não abre mais (fim do torneio)
+  {close:'2026-04-19T16:30:00-03:00', open:'2026-04-20T00:00:00-03:00', rnd:6, label:'R6 · Grande Final'},
+];
+
 function getMarketStatus(){
-  if(MARKET_FORCE_CLOSED) return {open:false, status:'closed', msg:'Mercado fechado'};
-  return {open:true, status:'open', msg:'Rodada ' + BLAST_ROUND + ' · Mercado aberto'};
+  if(MARKET_FORCE_CLOSED) return {open:false, status:'force_closed', label:'🔴 FECHADO', msg:'Mercado fechado pelo admin', color:'var(--red)'};
+  var now = new Date();
+  for(var i=0; i<MARKET_WINDOWS.length; i++){
+    var w = MARKET_WINDOWS[i];
+    var closeTime = new Date(w.close);
+    var openTime  = new Date(w.open);
+    if(now >= closeTime && now < openTime){
+      // Dentro da janela fechada — calcula countdown para abertura
+      var msLeft = openTime - now;
+      var h = Math.floor(msLeft/3600000);
+      var m = Math.floor((msLeft%3600000)/60000);
+      var s = Math.floor((msLeft%60000)/1000);
+      var timeStr = (h>0?h+'h ':'') + m+'min' + (h===0?' '+String(s).padStart(2,'0')+'s':'');
+      return {open:false, status:'auto_closed', label:'🔴 FECHADO', color:'var(--red)',
+        msg:w.label+' em andamento · abre em '+timeStr, countdown:msLeft, window:w};
+    }
+    // 30min antes de fechar — alerta amarelo
+    var warnTime = new Date(closeTime.getTime() - 30*60*1000);
+    if(now >= warnTime && now < closeTime){
+      var msToClose = closeTime - now;
+      var mClose = Math.floor(msToClose/60000);
+      var sClose = Math.floor((msToClose%60000)/1000);
+      return {open:true, status:'closing_soon', label:'🟡 R'+w.rnd+' · fecha em '+mClose+'min'+( mClose===0?' '+sClose+'s':''), color:'var(--oran)',
+        msg:w.label+' · Mercado fecha em '+mClose+'min — confirme seu time!'};
+    }
+  }
+  return {open:true, status:'open', label:'🟢 R'+BLAST_ROUND, color:'var(--grn)',
+    msg:'Rodada '+BLAST_ROUND+' · Mercado aberto'};
 }
 
 function formatCountdown(ms){
@@ -5199,7 +5355,7 @@ function getMarketOverride(){
 
 function renderMarketStatus(){
   var status = getMarketStatus();
-  status.label = status.open ? '🟢 R'+BLAST_ROUND : '🔴 FECHADO';
+  // label e color já vêm de getMarketStatus()
 
   // Atualizar badge no nav
   var badge = document.getElementById('market-badge');
@@ -5230,6 +5386,75 @@ function renderMarketStatus(){
   }
   roundBtn.textContent = 'R'+BLAST_ROUND+' ▶';
   roundBtn.onclick = function(e){ e.stopPropagation(); abrirRodada(); };
+
+  // ── Atualizar hero market widget ──
+  var hInner = document.getElementById('hero-market-inner');
+  var hDot   = document.getElementById('hero-market-dot');
+  var hLabel = document.getElementById('hero-market-label');
+  var hCount = document.getElementById('hero-market-countdown');
+  var hMsg   = document.getElementById('hero-market-msg');
+  if(hInner && hLabel){
+    if(!status.open){
+      // FECHADO — countdown para abertura
+      var msLeft = status.countdown || 0;
+      var hh = Math.floor(msLeft/3600000);
+      var mm = Math.floor((msLeft%3600000)/60000);
+      var ss = Math.floor((msLeft%60000)/1000);
+      var cdStr = (hh>0?String(hh).padStart(2,'0')+'h ':'')+String(mm).padStart(2,'0')+'m '+String(ss).padStart(2,'0')+'s';
+      hInner.style.borderColor = 'rgba(255,77,106,.25)';
+      hInner.style.background  = 'rgba(255,77,106,.05)';
+      hDot.style.background    = 'var(--red)';
+      hDot.style.animation     = 'none';
+      hLabel.style.color       = 'var(--red)';
+      hLabel.textContent = '🔒 MERCADO FECHADO';
+      hCount.textContent = status.window ? 'abre em ' + cdStr : '';
+      if(hMsg) hMsg.textContent = '';
+    } else if(status.status === 'closing_soon'){
+      // FECHANDO EM BREVE — amarelo
+      var msToClose = 0;
+      for(var wi=0;wi<MARKET_WINDOWS.length;wi++){
+        var ww=MARKET_WINDOWS[wi];
+        var ct=new Date(ww.close);
+        if(ct > new Date()){msToClose=ct-new Date();break;}
+      }
+      var mm2=Math.floor(msToClose/60000);
+      var ss2=Math.floor((msToClose%60000)/1000);
+      hInner.style.borderColor = 'rgba(255,153,68,.3)';
+      hInner.style.background  = 'rgba(255,153,68,.06)';
+      hDot.style.background    = 'var(--oran)';
+      hDot.style.animation     = 'blink .6s infinite';
+      hLabel.style.color       = 'var(--oran)';
+      hLabel.textContent = '⚠️ FECHA EM ' + mm2 + 'm ' + String(ss2).padStart(2,'0') + 's';
+      hCount.textContent = '';
+      if(hMsg) hMsg.textContent = '';
+    } else {
+      // ABERTO
+      hInner.style.borderColor = 'rgba(45,255,143,.2)';
+      hInner.style.background  = 'rgba(45,255,143,.05)';
+      hDot.style.background    = 'var(--grn)';
+      hDot.style.animation     = 'blink .9s infinite';
+      hLabel.style.color       = 'var(--grn)';
+      hLabel.textContent = '🟢 MERCADO ABERTO';
+      // Calcular quanto falta para fechar
+      var nextClose = null;
+      for(var wi=0;wi<MARKET_WINDOWS.length;wi++){
+        var ct=new Date(MARKET_WINDOWS[wi].close);
+        if(ct > new Date()){nextClose=ct;break;}
+      }
+      if(nextClose){
+        var msC=nextClose-new Date();
+        var hhC=Math.floor(msC/3600000);
+        var mmC=Math.floor((msC%3600000)/60000);
+        var ssC=Math.floor((msC%60000)/1000);
+        var strC=(hhC>0?String(hhC).padStart(2,'0')+'h ':'')+String(mmC).padStart(2,'0')+'m '+String(ssC).padStart(2,'0')+'s';
+        hCount.textContent = 'fecha em ' + strC;
+        if(hMsg) hMsg.textContent = '';
+      } else {
+        hCount.textContent = '';
+        if(hMsg) hMsg.textContent = '';
+      }
+    }
+  }
 
   // Bloquear draft se mercado fechado
   var btnConfirm = document.getElementById('blast-confirm-btn');
